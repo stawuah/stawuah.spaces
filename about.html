@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Stawuah</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #fafafa;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #000;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #000;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .intro {
+      margin-bottom: 50px;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      color: #2a2a2a;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section ul li {
+      font-size: 1rem;
+      color: #2a2a2a;
+      margin-bottom: 14px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .section ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .section ul li a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s;
+    }
+
+    .section ul li a:hover {
+      border-bottom: 1px solid #0066cc;
+    }
+
+    .status {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+
+    .status.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .status.failed {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .status.ongoing {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 25px 20px;
+      background-color: #c8ff00;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    .footer-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .footer-email {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .footer-email a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .footer-email a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-socials a {
+      color: #000;
+      text-decoration: underline;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-socials span {
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fafafa;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 40px 20px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-email {
+        font-size: 1.5rem;
+      }
+
+      .footer-socials {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="about.html" class="active">about</a>
+  <a href="writings.html">writings</a>
+  <!-- <a href="projects.html">projects</a>
+  <a href="leisure.html">leisure</a>
+  <a href="contact.html">contact</a> -->
+</nav>
+
+<div class="container">
+  <h1>About</h1>
+
+  <div class="intro">
+    <p>I'm Stephen Awuah, a software engineer from Ghana 🇬🇭 building things that matter. I'm working toward becoming a core Docker (Moby) contributor, with a focus on testing and reliability. Outside of code, I enjoy running, cryptography, and distributed systems.</p>
+  </div>
+
+  <div class="section">
+    <h2>Fun Facts</h2>
+    <ul>
+      <li>I co-founded <a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a>, a real estate platform for Ghana. <span class="status ongoing">[ongoing]</span></li>
+      <li>I run 2km in under 5 minutes.</li>
+      <li>I once built over 100+ JavaScript projects in a single year to master the language. <span class="status success">[success]</span></li>
+      <li>I'm fascinated by zero-knowledge proofs and the <a href="https://noir-lang.org/" target="_blank">Noir</a> programming language.</li>
+      <li>Failed my third open source contribution on <a href="https://sablier.com/" target="_blank">Sablier Labs</a>. <span class="status failed">[failed]</span> (My motivation to contribute to Chainlink and Docker Moby, and both worked hahahahaha)</li>
+      <li>Contributed to <a href="https://chain.link/" target="_blank">Chainlink</a> open source. <span class="status success">[success]</span></li>
+      <li>About to contribute to <a href="https://github.com/moby/moby" target="_blank">Docker Moby</a> engine as open source. <span class="status ongoing">[ongoing]</span></li>
+      <li>Ideation on <a href="https://github.com/orgs/noir-lang/discussions/10234" target="_blank">NoirZeppelin</a> - ZK version of OpenZeppelin.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Strengths</h2>
+    <ul>
+      <li>software design (go, rust, k8s, cloud)</li>
+      <li>research (spikes, prototypes) & development.</li>
+      <li>going from zero-to-one, could be anything.</li>
+      <li>making connections between ideas & people.</li>
+      <li>simplification — teaching & communicating clearly.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Interests</h2>
+    <div class="two-column">
+      <ul>
+        <li>Aqua-culture</li>
+        <li>cryptography</li>
+        <li>running</li>
+        <li>music</li>
+      </ul>
+      <ul>
+        <li>zero-knowledge proofs</li>
+        <li>distributed systems</li>
+        <li>observability</li>
+        <li>networking</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-email">
+        <a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank">twitter</a>
+        <span>·</span>
+        <a href="https://github.com/stawuah" target="_blank">github</a>
+        <span>·</span>
+        <a href="https://linkedin.com/in/stawuah" target="_blank">linkedin</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

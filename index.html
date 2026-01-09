@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>stawuah.r</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #fafafa;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .header .subtitle {
+      font-size: 0.95rem;
+      color: #404040;
+      margin-bottom: 4px;
+    }
+
+    .header .subtitle strong {
+      color: #000;
+    }
+
+    .header .location {
+      font-size: 0.95rem;
+      color: #404040;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .hero-image {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .content {
+      margin-bottom: 40px;
+    }
+
+    .content p {
+      font-size: 1rem;
+      color: #2a2a2a;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .content p strong {
+      color: #000;
+    }
+
+    .content a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.2s;
+    }
+
+    .content a:hover {
+      border-bottom: 1px solid #0066cc;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #2a2a2a;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      color: #737373;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fafafa;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 40px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="about.html">about</a>
+  <a href="writings.html">writings</a>
+  <a href="projects.html">projects</a> 
+  <!-- <a href="leisure.html">leisure</a>
+  <a href="contact.html">contact</a> -->
+</nav>
+
+<div class="container">
+  <div class="header">
+    <h1>Stephen Awuah </h1>
+    <p class="subtitle">A ghanaian <strong>software engineer</strong></p>
+    <p class="location">based in Accra 🇬🇭</p>
+  </div>
+
+  <div class="hero-image">
+    <img src="https://i.ibb.co/bMysxCt8/9d355781-7260-424d-8203-d3f8137b397f-1.jpg" alt="Stephen Awuah">
+  </div>
+
+  <div class="content">
+    <p>For the past 4 years, I've been building products across analytics, proptech, and enterprise software. I recently wrapped up my journey at <a href="https://enyata.com/" target="_blank">Enyata</a> and am excited to tackle my next <strong>BIG PROJECT</strong>.</p>
+    
+    <p>I'm largely interested in open source, diving into LLM memory, GPU Memory + kv cache, football, observability and networked services.</p>
+    
+    <p><a href="about.html">Learn more about me</a>, read my <a href="writings.html">fragments</a>, or <a href="contact.html">contact me</a>. I'm always down to chat.</p>
+  </div>
+
+  <div class="section">
+    <h2>What I'm working on</h2>
+    <p>1. <a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a> - The operating system for real estate in Ghana: unified property management, verified listings & transparent transactions.</p>
+    <p>2. <a href="https://urban-lime-qi3ow1njg8.edgeone.dev/" target="_blank">EdgeObserve</a> Logging and metrics for distributed containers. Built specifically for k3s, IoT, and edge infrastructure with a sub-10MB footprint..</p>
+    <p>3. <a href="https://github.com/stawuah/Sink" target="_blank">Sink</a> - observability & logging for edge containers/infra, configurable to development workflow (Golang).</p>
+  </div>
+
+  <footer>
+    <p style="color: #000; font-size: 0.8rem; font-weight: bold;">© 2025 異体同心</p>
+
+  </footer>
+</div>
+
+</body>
+</html>

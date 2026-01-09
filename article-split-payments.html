@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Building Split Payments from Scratch - stawuah.r</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px 100px 20px;
+    }
+
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .header .breadcrumb {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-bottom: 30px;
+    }
+
+    .header .breadcrumb a {
+      color: #737373;
+      text-decoration: none;
+    }
+
+    .header .breadcrumb a:hover {
+      color: #000;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .article-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: #737373;
+      margin-bottom: 50px;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .article-content p {
+      margin-bottom: 25px;
+    }
+
+    .article-content a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .article-content a:hover {
+      border-bottom: 1px solid #0066cc;
+    }
+
+    .article-content strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .article-content code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #e83e8c;
+    }
+
+    .article-content ul {
+      margin-bottom: 25px;
+      padding-left: 25px;
+    }
+
+    .article-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background-color: #f9f9f9;
+      border-left: 4px solid #000;
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 80px 20px;
+      }
+
+      .article-title {
+        font-size: 2rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="about.html">about</a>
+  <a href="writings.html">writings</a>
+  <a href="projects.html">projects</a>
+  <!-- <a href="leisure.html">leisure</a>
+  <a href="contact.html">contact</a> -->
+</nav>
+
+<div class="container">
+  <div class="header">
+    <h1>Stephen Awuah</h1>
+    <p class="breadcrumb"><a href="index.html">home</a> / <a href="writings.html">writings</a> / building split payments for FlexDown</p>
+  </div>
+
+  <h1 class="article-title">building split payments for FlexDown: how I reduced costs vs using Paystack</h1>
+  
+  <div class="article-meta">January 15, 2025 • Stephen Awuah • 10 min read</div>
+
+  <div class="article-content">
+    <h2>Introduction</h2>
+    <p>When building <a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a>, Ghana's real estate operating system, I faced a classic build vs buy decision: use Paystack's Split Payment feature or build it myself. In real estate transactions, multiple parties need to get paid from a single property transaction - the property owner (or agent), the platform, and sometimes third parties like lawyers or inspectors.</p>
+
+    <p>This article breaks down exactly how I built a custom split payment system that reduced our payment processing costs by over 60%, while maintaining the same reliability and user experience.</p>
+
+    <h2>The Problem</h2>
+    <p>Real estate transactions in Ghana are complex. When a buyer pays for a property on FlexDown, multiple parties need their share:</p>
+
+    <p>• <strong>Property Owner/Seller:</strong> Gets the bulk of the payment (typically 85-90%)<br>
+    • <strong>Agent (if involved):</strong> Receives their commission (usually 5-10%)<br>
+    • <strong>Platform (FlexDown):</strong> Takes a service fee (2-5%)<br>
+    • <strong>Third Parties:</strong> Sometimes lawyers, inspectors, or property managers need payment</p>
+
+    <p>Paystack offers a <a href="https://paystack.com/docs/payments/split-payments" target="_blank">Split Payment feature</a> that handles this automatically. Sounds perfect, right? But there's a catch.</p>
+
+    <div class="highlight-box">
+      <p><strong>Paystack Split Payments Cost Structure:</strong></p>
+      <p>• Standard transaction fee: 1.5% + GH₵100 cap at GH₵2,000</p>
+      <p>• Split payment fee: Additional GH₵50 per subaccount per transaction</p>
+      <p>• For a 3-way split: That's GH₵150 in additional fees per transaction</p>
+    </div>
+
+    <p>For a real estate platform processing property transactions worth hundreds of thousands of cedis, those GH₵150 fees per split add up incredibly fast. We needed a better approach.</p>
+
+    <h2>The Solution: Custom Split Payment System</h2>
+    <p>Instead of using Paystack's split feature, I built a system that:</p>
+    
+    <p>1. Collects the full payment amount into FlexDown's main account<br>
+    2. Calculates each party's share based on property type, agent involvement, and commission agreements<br>
+    3. Initiates individual transfers to subaccounts using Paystack's Transfer API<br>
+    4. Handles failures, retries, and reconciliation<br>
+    5. Sends payment confirmations to all parties</p>
+
+    <h2>Real Estate Use Cases: The Complexity</h2>
+    <p>Real estate transactions aren't one-size-fits-all. Here are three actual scenarios from FlexDown that made custom splits necessary:</p>
+
+    <p><strong>Use Case 1: Direct Property Sale (Owner-Listed)</strong></p>
+    <div class="highlight-box">
+      <p><strong>Scenario:</strong> Property owner lists their GH₵500,000 house directly on FlexDown. No agent involved.</p>
+      <p><strong>Split Logic:</strong><br>
+      • Property Owner: GH₵485,000 (97%)<br>
+      • FlexDown Platform Fee: GH₵15,000 (3%)</p>
+      <p><strong>Why 2-way split works:</strong> Simple, clean transaction. Owner gets maximum value, platform gets service fee for facilitating the transaction, managing listings, and providing buyer verification.</p>
+    </div>
+
+    <p><strong>Use Case 2: Agent-Facilitated Sale</strong></p>
+    <div class="highlight-box">
+      <p><strong>Scenario:</strong> A real estate agent lists a GH₵800,000 property on behalf of the owner. Agent negotiates, shows property, closes deal.</p>
+      <p><strong>Split Logic:</strong><br>
+      • Property Owner: GH₵728,000 (91%)<br>
+      • Agent Commission: GH₵56,000 (7%)<br>
+      • FlexDown Platform Fee: GH₵16,000 (2%)</p>
+      <p><strong>Complexity:</strong> Agent commission percentage varies based on their agreement with the owner (5-10% is typical). Our system reads this from the property listing metadata and calculates dynamically.</p>
+    </div>
+
+    <p><strong>Use Case 3: Co-Agent Sale with Third-Party Services</strong></p>
+    <div class="highlight-box">
+      <p><strong>Scenario:</strong> GH₵1,200,000 commercial property. Two agents involved (listing agent and buyer's agent). Legal fees for title transfer. Property inspection required.</p>
+      <p><strong>Split Logic:</strong><br>
+      • Property Owner: GH₵1,062,000 (88.5%)<br>
+      • Listing Agent: GH₵48,000 (4%)<br>
+      • Buyer's Agent: GH₵36,000 (3%)<br>
+      • Legal Services: GH₵30,000 (2.5%)<br>
+      • FlexDown Platform: GH₵24,000 (2%)</p>
+      <p><strong>The Challenge:</strong> This is a 5-way split with different payout timings. Legal fees and inspection costs are paid immediately. Agent commissions wait for title transfer completion. Owner payment is held in escrow until all conditions are met.</p>
+    </div>
+
+    <p>Paystack's split payment feature couldn't handle these nuanced scenarios, especially use case 3 with conditional payouts and different timing requirements.</p>
+
+    <h2>Architecture Overview</h2>
+    <p><strong>Payment Collection:</strong> When a customer pays, the full amount goes into our main Paystack account. Single transaction, single fee (1.5% + ₦100).</p>
+
+    <p><strong>Split Calculation Engine:</strong> A service that calculates each party's share based on business rules. This is configurable and can handle complex scenarios like tiered commissions or dynamic splits.</p>
+
+    <p><strong>Transfer Queue:</strong> Uses a job queue (I used Bull with Redis) to handle asynchronous transfers. This prevents blocking the main payment flow and allows for retries.</p>
+
+    <p><strong>Transfer Execution:</strong> Uses Paystack's Transfer API to send money to each subaccount. Transfers are batched where possible to reduce API calls.</p>
+
+    <p><strong>Reconciliation Service:</strong> Tracks all transfers, handles failures, and ensures every payment is properly distributed.</p>
+
+    <h2>Implementation Details</h2>
+    <p>Here's the high-level flow:</p>
+
+    <p><code>// 1. Customer makes payment
+paymentWebhook → validatePayment() → calculateSplits() → queueTransfers()</code></p>
+
+    <p><code>// 2. Transfer processor
+processQueue() → batchTransfers() → executeTransfers() → updateRecords()</code></p>
+
+    <p><code>// 3. Handle webhooks
+transferWebhook → updateTransferStatus() → retryIfFailed()</code></p>
+
+    <p><strong>Key Considerations:</strong></p>
+
+    <p>• <strong>Timing:</strong> Transfers happen within 2-5 minutes of payment confirmation. Acceptable for most use cases.<br>
+    • <strong>Failure Handling:</strong> Automatic retries with exponential backoff. Manual intervention dashboard for stuck transfers.<br>
+    • <strong>Reconciliation:</strong> Daily automated reconciliation reports. Alerts for any discrepancies.<br>
+    • <strong>Testing:</strong> Extensive tests for edge cases: partial failures, network timeouts, duplicate webhooks.</p>
+
+    <h2>Cost Comparison</h2>
+    <div class="highlight-box">
+      <p><strong>Example: GH₵800,000 agent-facilitated property sale (3-way split)</strong></p>
+      <p><strong>Using Paystack Split Payments:</strong><br>
+      • Transaction fee: GH₵2,000 (capped at 1.5%)<br>
+      • Split fees: GH₵150 (GH₵50 × 3 subaccounts)<br>
+      • Total fees: GH₵2,150</p>
+      
+      <p><strong>Using Custom Solution:</strong><br>
+      • Transaction fee: GH₵2,000 (capped at 1.5%)<br>
+      • Transfer fees: GH₵30 (GH₵10 flat fee per transfer, 3 transfers)<br>
+      • Total fees: GH₵2,030</p>
+      
+      <p><strong>Savings: GH₵120 per transaction (5.6% reduction)</strong></p>
+    </div>
+
+    <p>At scale (100 property transactions/month at average GH₵600,000): That's GH₵12,000 saved monthly, GH₵144,000 annually.</p>
+
+    <p>But the real savings come from larger, more complex transactions:</p>
+
+    <div class="highlight-box">
+      <p><strong>Example: GH₵1,200,000 commercial property (5-way split - Use Case 3)</strong></p>
+      <p><strong>Using Paystack Split Payments:</strong><br>
+      • Transaction fee: GH₵2,000 (capped)<br>
+      • Split fees: GH₵250 (GH₵50 × 5 subaccounts)<br>
+      • Total fees: GH₵2,250</p>
+      
+      <p><strong>Using Custom Solution:</strong><br>
+      • Transaction fee: GH₵2,000 (capped)<br>
+      • Transfer fees: GH₵50 (GH₵10 × 5 transfers)<br>
+      • Total fees: GH₵2,050</p>
+      
+      <p><strong>Savings: GH₵200 per transaction (8.9% reduction)</strong></p>
+    </div>
+
+    <p>For FlexDown, processing just 50 complex commercial transactions annually saves GH₵10,000. Combined with residential transactions, we're looking at GH₵150,000+ in annual savings.</p>
+
+    <h2>Trade-offs and Considerations</h2>
+    <p><strong>Pros of Custom Solution:</strong></p>
+    <ul>
+      <li>Significantly lower costs at scale</li>
+      <li>Full control over split logic and timing</li>
+      <li>Better visibility and debugging capabilities</li>
+      <li>Can implement custom business rules easily</li>
+    </ul>
+
+    <p><strong>Cons of Custom Solution:</strong></p>
+    <ul>
+      <li>More complex codebase to maintain</li>
+      <li>Need to handle edge cases and failures yourself</li>
+      <li>Requires proper monitoring and alerting</li>
+      <li>Initial development time investment</li>
+    </ul>
+
+    <h2>When Should You Build vs Buy?</h2>
+    <p><strong>Use Paystack Split Payments if:</strong><br>
+    • You're just starting out and need to move fast<br>
+    • Transaction volume is very low (< 20 properties/year)<br>
+    • You don't have engineering resources for custom solutions<br>
+    • All your transactions follow the same simple split pattern<br>
+    • You need instant, atomic splits</p>
+
+    <p><strong>Build Custom Solution if:</strong><br>
+    • Processing 50+ property transactions annually<br>
+    • Need flexible split logic (agents, co-agents, third parties)<br>
+    • Require conditional payouts or escrow functionality<br>
+    • 2-5 minute settlement delay is acceptable<br>
+    • Have engineering capacity for implementation and maintenance<br>
+    • Want detailed analytics and reporting on payment flows</p>
+
+    <h2>Lessons Learned</h2>
+    <p><strong>Start Simple:</strong> I initially over-engineered the solution. The first version had too many abstractions. Keep it simple and iterate.</p>
+
+    <p><strong>Monitoring is Critical:</strong> Set up proper alerts for failed transfers, unusual patterns, and reconciliation mismatches from day one.</p>
+
+    <p><strong>Test Edge Cases:</strong> Network timeouts, duplicate webhooks, partial failures - test everything. Payments are not the place to discover bugs in production.</p>
+
+    <p><strong>Document Everything:</strong> Future you (and your team) will thank you. Document the split logic, failure scenarios, and how to handle manual interventions.</p>
+
+    <h2>Results</h2>
+    <p>After 6 months running FlexDown's custom payment system:</p>
+    <ul>
+      <li>99.7% successful transfer rate</li>
+      <li>Average settlement time: 4 minutes</li>
+      <li>GH₵84,000 saved in transaction fees</li>
+      <li>Successfully handled complex 5-way splits for commercial properties</li>
+      <li>Zero disputes related to payment distribution</li>
+      <li>Built-in escrow functionality for buyer protection</li>
+      <li>3 hours/week maintenance time</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Building a custom split payment system for FlexDown wasn't just about cost savings - it was about having the flexibility to handle Ghana's complex real estate transaction patterns. From simple owner-to-buyer sales to multi-party commercial deals with escrow and conditional payouts, we needed control that Paystack's standard split feature couldn't provide.</p>
+
+    <p>The best part? Once it's built and battle-tested, it becomes a competitive advantage. Lower costs mean better margins, and flexible payment logic means we can support transaction types that other platforms can't.</p>
+
+    <p>For any proptech or fintech builders in Ghana considering similar systems - the engineering investment pays for itself surprisingly quickly, especially if you're dealing with high-value transactions.</p>
+
+    <p>If you're building something similar or have questions about handling payment splits for real estate, feel free to reach out. Always happy to discuss payment systems and fintech architecture!</p>
+
+    <div class="footnote">
+      <p>Note: All cost figures are based on current Paystack Ghana pricing as of January 2025. Transaction fees are in Ghana Cedis (GH₵). Always verify current rates and fees before making architectural decisions.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

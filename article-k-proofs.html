@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zero-Knowledge Proofs for Beginners - stawuah.r</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px 100px 20px;
+    }
+
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .header .breadcrumb {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-bottom: 30px;
+    }
+
+    .header .breadcrumb a {
+      color: #737373;
+      text-decoration: none;
+    }
+
+    .header .breadcrumb a:hover {
+      color: #000;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .article-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: #737373;
+      margin-bottom: 50px;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .article-content p {
+      margin-bottom: 25px;
+    }
+
+    .article-content a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .article-content a:hover {
+      border-bottom: 1px solid #0066cc;
+    }
+
+    .article-content strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .article-content code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #e83e8c;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid #e0e0e0;
+      padding-left: 20px;
+      margin: 30px 0;
+      color: #404040;
+      font-style: italic;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 80px 20px;
+      }
+
+      .article-title {
+        font-size: 2rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="about.html">about</a>
+  <a href="writings.html">writings</a>
+  <a href="projects.html">projects</a>
+  <!-- <a href="leisure.html">leisure</a>
+  <a href="contact.html">contact</a> --> 
+</nav>
+
+<div class="container">
+  <div class="header">
+    <h1>Stephen Awuah</h1>
+    <p class="breadcrumb"><a href="index.html">home</a> / <a href="writings.html">writings</a> / zero-knowledge proofs for beginners</p>
+  </div>
+
+  <h1 class="article-title">zero-knowledge proofs for beginners</h1>
+  
+  <div class="article-meta">January 8, 2025 • Stephen Awuah • 12 min read</div>
+
+  <div class="article-content">
+    <h2>Introduction</h2>
+    <p>Zero-knowledge proofs (ZKPs) sound like something out of a sci-fi movie, but they're one of the most powerful cryptographic tools we have today. The basic idea? You can prove you know something without revealing what that something is. Mind-bending, right?</p>
+
+    <p>I first encountered ZKPs while exploring privacy-preserving technologies and the <a href="https://noir-lang.org/" target="_blank">Noir programming language</a>. What started as curiosity turned into a deep dive into how we can verify information without exposing it.</p>
+
+    <h2>What Are Zero-Knowledge Proofs?</h2>
+    <p>Imagine you want to prove to someone that you know the password to a safe, but you don't want to tell them the password. A zero-knowledge proof lets you do exactly that. You can demonstrate knowledge of the password without ever revealing it.</p>
+
+    <p>More formally, a zero-knowledge proof allows one party (the prover) to convince another party (the verifier) that a statement is true, without revealing any information beyond the validity of the statement itself.</p>
+
+    <h2>The Classic Example: Ali Baba's Cave</h2>
+    <p>The best way to understand ZKPs is through the classic "Ali Baba's Cave" example. Imagine a circular cave with a magic door in the middle that requires a secret passphrase to open. The cave has two paths (A and B) that meet at this door.</p>
+
+    <p>You claim to know the passphrase. To prove it without revealing the passphrase:</p>
+    
+    <p>1. You enter the cave and randomly choose path A or B while the verifier waits outside.<br>
+    2. The verifier enters and shouts which path they want you to exit from.<br>
+    3. If you know the passphrase, you can always exit from the requested path (by going through the magic door if needed).<br>
+    4. If you don't know it, you'll only be correct 50% of the time.</p>
+
+    <p>After repeating this process enough times, the probability that you're guessing becomes negligibly small. You've proven you know the passphrase without ever revealing it.</p>
+
+    <h2>Real-World Applications</h2>
+    <p><strong>Privacy-Preserving Cryptocurrencies:</strong> Zcash uses ZKPs to allow transactions where the sender, receiver, and amount can all be kept private while still proving the transaction is valid.</p>
+
+    <p><strong>Authentication:</strong> Prove you know a password without sending it over the network. No more password leaks from servers!</p>
+
+    <p><strong>Identity Verification:</strong> Prove you're over 18 without revealing your exact birthdate. Prove you have sufficient funds without revealing your bank balance.</p>
+
+    <p><strong>Scalability:</strong> ZK-Rollups in Ethereum allow thousands of transactions to be processed off-chain while posting a single proof on-chain, dramatically reducing costs.</p>
+
+    <h2>Types of Zero-Knowledge Proofs</h2>
+    <p><strong>Interactive ZKPs:</strong> Require back-and-forth communication between prover and verifier (like the cave example).</p>
+
+    <p><strong>Non-Interactive ZKPs:</strong> The proof can be generated once and verified by anyone, anytime. These are more practical for blockchain applications.</p>
+
+    <p><strong>zk-SNARKs:</strong> Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge. These are short proofs that can be verified quickly. Used by Zcash and many scaling solutions.</p>
+
+    <p><strong>zk-STARKs:</strong> Zero-Knowledge Scalable Transparent Arguments of Knowledge. Don't require a trusted setup and are quantum-resistant, but produce larger proofs.</p>
+
+    <h2>Building with Noir</h2>
+    <p>The <a href="https://noir-lang.org/" target="_blank">Noir programming language</a> makes writing zero-knowledge circuits much more accessible. Instead of dealing with low-level constraint systems, you can write programs that look almost like regular code.</p>
+
+    <p>Here's a simple example of proving you know a number that hashes to a specific value:</p>
+
+    <p><code>fn main(secret: Field, public_hash: pub Field) {
+    assert(hash(secret) == public_hash);
+}</code></p>
+
+    <p>This circuit proves you know a <code>secret</code> value that hashes to <code>public_hash</code>, without revealing the secret itself.</p>
+
+    <h2>The Future of ZKPs</h2>
+    <p>We're still in the early days of zero-knowledge proofs. The technology is getting faster, more efficient, and easier to use. I'm particularly excited about:</p>
+
+    <p><strong>ZK-Powered Identity Systems:</strong> Imagine proving your credentials without sharing sensitive personal information.</p>
+
+    <p><strong>Private Smart Contracts:</strong> Executing business logic while keeping inputs and state private.</p>
+
+    <p><strong>Scalability Solutions:</strong> ZK-Rollups and validiums that can process millions of transactions.</p>
+
+    <p><strong>Cross-Chain Privacy:</strong> Proving facts about assets on one chain to another without revealing details.</p>
+
+    <h2>Getting Started</h2>
+    <p>If you're interested in learning more about ZKPs:</p>
+
+    <p>1. Start with <a href="https://noir-lang.org/" target="_blank">Noir</a> - it's the most developer-friendly way to build ZK applications.<br>
+    2. Check out the <a href="https://github.com/orgs/noir-lang/discussions/10234" target="_blank">NoirZeppelin</a> discussion - bringing ZK to smart contract libraries.<br>
+    3. Experiment with simple circuits before tackling complex applications.<br>
+    4. Join the community - the ZK space is collaborative and welcoming to newcomers.</p>
+
+    <h2>Conclusion</h2>
+    <p>Zero-knowledge proofs represent a fundamental shift in how we think about privacy and verification. They're not just theoretical cryptography anymore - they're powering real applications that process billions of dollars in value.</p>
+
+    <p>The best part? We're just scratching the surface. As tools like Noir make ZKPs more accessible, I believe we'll see an explosion of privacy-preserving applications that were previously impossible to build.</p>
+
+    <p>If you're building something with zero-knowledge proofs or just curious to learn more, I'm always happy to chat. Reach out!</p>
+
+    <div class="footnote">
+      <p>Thanks for reading. If you found this helpful, feel free to share it with others who might be interested in ZKPs.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

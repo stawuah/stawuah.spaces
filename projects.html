@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects - Stawuah</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #fafafa;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px 100px 20px;
+      flex: 1;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #000;
+    }
+
+    .header {
+      margin-bottom: 60px;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: #404040;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      border: 1px solid #e8e8e8;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+
+    .project-title {
+      flex: 1;
+    }
+
+    .project-title h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .project-title h2 a {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-title h2 a:hover {
+      color: #0066cc;
+    }
+
+    .project-status {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-live {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .status-beta {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .status-development {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-value {
+      font-size: 0.9rem;
+      color: #2a2a2a;
+      font-weight: 500;
+    }
+
+    .project-description {
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .project-spoilers {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .spoilers-title {
+      font-size: 0.85rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .spoilers-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .spoilers-list li {
+      font-size: 0.95rem;
+      color: #404040;
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .spoilers-list li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #000;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .tech-tag {
+      background-color: #f0f0f0;
+      color: #404040;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .link-primary {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .link-primary:hover {
+      background-color: #2a2a2a;
+    }
+
+    .link-secondary {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .link-secondary:hover {
+      background-color: #e0e0e0;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 25px 20px;
+      background-color: #c8ff00;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    .footer-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .footer-email {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .footer-email a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .footer-email a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-socials a {
+      color: #000;
+      text-decoration: underline;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-socials span {
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fafafa;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 80px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+
+      .project-header {
+        flex-direction: column;
+      }
+
+      .project-title h2 {
+        font-size: 1.5rem;
+      }
+
+      .project-meta {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="about.html">about</a>
+  <!-- <a href="writings.html">writings</a> -->
+  <a href="projects.html" class="active">projects</a>
+  <!-- <a href="leisure.html">leisure</a>
+  <a href="contact.html">contact</a> -->
+</nav>
+
+<div class="container">
+  <div class="header">
+    <h1>Stephen Awuah</h1>
+    <p>selected projects / things I'm building</p>
+  </div>
+
+  <!-- EdgeObserve Project -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-title">
+        <h2><a href="https://urban-lime-qi3ow1njg8.edgeone.dev/" target="_blank">EdgeObserve</a></h2>
+      </div>
+      <span class="project-status status-beta">Beta</span>
+    </div>
+
+    <div class="project-meta">
+      <div class="meta-item">
+        <span class="meta-label">Launch</span>
+        <span class="meta-value">December 2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">SaaS / DevOps</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Stage</span>
+        <span class="meta-value">Public Beta</span>
+      </div>
+    </div>
+
+    <p class="project-description">
+      Observability for the edge. Zero latency. Unified logging and metrics for distributed containers built specifically for k3s, IoT, and edge infrastructure with a sub-10MB footprint. Think Datadog meets edge computing.
+    </p>
+
+    <div class="project-spoilers">
+      <div class="spoilers-title">🔍 What's Coming</div>
+      <ul class="spoilers-list">
+        <li>WebSocket-based real-time log streaming through NATs</li>
+        <li>2GB local buffering for offline-first edge nodes</li>
+        <li>Fleet management for 1000+ devices with single config push</li>
+        <li>Auto-discovery for Kubernetes clusters and Docker swarms</li>
+        <li>Custom alerting with PagerDuty & Slack integrations</li>
+      </ul>
+    </div>
+
+    <div class="tech-stack">
+      <span class="tech-tag">Go</span>
+      <span class="tech-tag">Rust</span>
+      <span class="tech-tag">Docker</span>
+      <span class="tech-tag">Kubernetes</span>
+      <span class="tech-tag">WebSocket</span>
+      <span class="tech-tag">TimescaleDB</span>
+      <span class="tech-tag">Redis</span>
+    </div>
+
+    <div class="project-links">
+      <a href="https://urban-lime-qi3ow1njg8.edgeone.dev/" target="_blank" class="project-link link-primary">
+        Visit Site →
+      </a>
+      <a href="https://github.com/stawuah" target="_blank" class="project-link link-secondary">
+        GitHub →
+      </a>
+    </div>
+  </div>
+
+  <!-- StableSave Project -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-title">
+        <h2><a href="https://cruel-green-ivsb3hqm8e.edgeone.dev/" target="_blank">StableSave Ghana</a></h2>
+      </div>
+      <span class="project-status status-development">In Development</span>
+    </div>
+
+    <div class="project-meta">
+      <div class="meta-item">
+        <span class="meta-label">Expected Launch</span>
+        <span class="meta-value">Q2 2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">Fintech / Mobile</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Market</span>
+        <span class="meta-value">Ghana</span>
+      </div>
+    </div>
+
+    <p class="project-description">
+      Stop watching your cedis melt. The secure way for Ghanaians to protect their wealth from inflation. Convert Cedi to Dollar (USDC) instantly, earn 5% APY, and deposit via Mobile Money. Built for modern financial growth in Africa.
+    </p>
+
+    <div class="project-spoilers">
+      <div class="spoilers-title">💰 Core Features</div>
+      <ul class="spoilers-list">
+        <li>Instant GHS to USDC conversion via MTN MoMo, Telecel, AirtelTigo</li>
+        <li>5% APY on dollar savings (paid weekly)</li>
+        <li>Susu 2.0: Group savings circles with friends in stable dollars</li>
+        <li>Real-time inflation calculator showing purchasing power saved</li>
+        <li>Bank-grade security with SOC2 compliance</li>
+        <li>Instant withdrawals back to Mobile Money</li>
+      </ul>
+    </div>
+
+    <div class="tech-stack">
+      <span class="tech-tag">TypeScript</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">React Native</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Redis</span>
+      <span class="tech-tag">Paystack</span>
+      <span class="tech-tag">USDC</span>
+      <span class="tech-tag">Web3</span>
+    </div>
+
+    <div class="project-links">
+      <a href="https://cruel-green-ivsb3hqm8e.edgeone.dev/" target="_blank" class="project-link link-primary">
+        Preview Site →
+      </a>
+      <a href="#" class="project-link link-secondary">
+        Join Waitlist →
+      </a>
+    </div>
+  </div>
+
+  <!-- FlexDown Project -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-title">
+        <h2><a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a></h2>
+      </div>
+      <span class="project-status status-live">Live</span>
+    </div>
+
+    <div class="project-meta">
+      <div class="meta-item">
+        <span class="meta-label">Launched</span>
+        <span class="meta-value">August 2024</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">PropTech / Platform</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Market</span>
+        <span class="meta-value">Ghana</span>
+      </div>
+    </div>
+
+    <p class="project-description">
+      The operating system for real estate in Ghana. Unified property management, verified listings, transparent transactions, and smart payment splits for buyers, sellers, and agents. Built to fix Ghana's fragmented real estate market.
+    </p>
+
+    <div class="project-spoilers">
+      <div class="spoilers-title">🏡 Platform Highlights</div>
+      <ul class="spoilers-list">
+        <li>Custom payment split engine for multi-party transactions (see writings)</li>
+        <li>Verified property listings with complete transaction history</li>
+        <li>Built-in escrow for buyer protection</li>
+        <li>Agent commission automation and disbursement</li>
+        <li>Market analytics and property valuation tools</li>
+        <li>Mobile-first experience for Ghanaian users</li>
+      </ul>
+    </div>
+
+    <div class="tech-stack">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Django</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Redis</span>
+      <span class="tech-tag">Paystack</span>
+      <span class="tech-tag">AWS</span>
+    </div>
+
+    <div class="project-links">
+      <a href="https://cyzegg.readdy.co/" target="_blank" class="project-link link-primary">
+        Visit Platform →
+      </a>
+      <a href="article-split-payments.html" class="project-link link-secondary">
+        Read Case Study →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-email">
+      <a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a>
+    </div>
+    <div class="footer-socials">
+      <a href="https://twitter.com/stawuah" target="_blank">twitter</a>
+      <span>·</span>
+      <a href="https://github.com/stawuah" target="_blank">github</a>
+      <span>·</span>
+      <a href="https://linkedin.com/in/stawuah" target="_blank">linkedin</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
