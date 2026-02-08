@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>When Koyeb Ghosted Me - stawuah.r</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 20px 100px 20px;
+    }
+
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .header .breadcrumb {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-bottom: 30px;
+    }
+
+    .header .breadcrumb a {
+      color: #737373;
+      text-decoration: none;
+    }
+
+    .header .breadcrumb a:hover {
+      color: #000;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .article-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000;
+      line-height: 1.2;
+    }
+
+    .article-subtitle {
+      font-size: 1.2rem;
+      color: #404040;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .article-meta {
+      font-size: 0.95rem;
+      color: #737373;
+      margin-bottom: 50px;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #2a2a2a;
+      line-height: 1.8;
+    }
+
+    .article-content h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .article-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .article-content p {
+      margin-bottom: 25px;
+    }
+
+    .article-content a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .article-content a:hover {
+      border-bottom: 1px solid #0066cc;
+    }
+
+    .article-content strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .article-content em {
+      font-style: italic;
+      color: #404040;
+    }
+
+    .article-content ul {
+      margin-bottom: 25px;
+      padding-left: 25px;
+    }
+
+    .article-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .article-content pre {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 25px 0;
+      border: 1px solid #e8e8e8;
+    }
+
+    .article-content code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .article-content pre code {
+      color: #2a2a2a;
+      background: none;
+      padding: 0;
+    }
+
+    .article-content :not(pre) > code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #e83e8c;
+    }
+
+    .article-content hr {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 40px 0;
+    }
+
+    .article-content blockquote {
+      border-left: 4px solid #e8e8e8;
+      padding-left: 20px;
+      margin: 30px 0;
+      color: #404040;
+      font-style: italic;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #737373;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #e8e8e8;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 15px 20px;
+        z-index: 100;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+
+      .container {
+        padding: 80px 20px 80px 20px;
+      }
+
+      .article-title {
+        font-size: 2rem;
+      }
+
+      .article-subtitle {
+        font-size: 1rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.4rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .article-content pre {
+        padding: 15px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">home</a>
+  <a href="about.html">about</a>
+  <a href="writings.html">writings</a>
+  <a href="projects.html">projects</a>
+</nav>
+
+<div class="container">
+  <div class="header">
+    <h1>Stephen Awuah</h1>
+    <p class="breadcrumb"><a href="index.html">home</a> / <a href="writings.html">writings</a> / when Koyeb ghosted me</p>
+  </div>
+
+  <h1 class="article-title">when Koyeb (running Heroku buildpacks) ghosted me: a TypeScript compiler meltdown story</h1>
+  
+  <p class="article-subtitle">How I learned that Koyeb uses Heroku under the hood, and both decided to hate my code simultaneously</p>
+  
+  <div class="article-meta">Febuary 6, 2026 • Stephen Awuah • 18 min read</div>
+
+  <div class="article-content">
+    <hr>
+
+    <h2>The Incident: A Plot Twist I Didn't See Coming</h2>
+    <p>It's 2 AM on a Tuesday. I'm shipping a beautiful new map routing feature for our real estate app. You know, the kind of feature that makes product managers cry tears of joy—property seekers can now calculate routes from their location to listings. Chef's kiss.</p>
+
+    <p>I push to Koyeb (because I'm fancy and like their UI):</p>
+
+    <pre><code>git push origin main</code></pre>
+
+    <p>Koyeb's build logs start scrolling. Then I see something... familiar:</p>
+
+    <pre><code>* Running scripts
+  * Running `npm run build`
+    > flexdown@0.0.2 build
+    > tsc
+    
+src/modules/map/map.controller.ts(32,13): error TS1434: Unexpected keyword or identifier.
+src/modules/map/map.controller.ts(32,22): error TS1005: ';' expected.
+src/modules/map/map.controller.ts(32,27): error TS1434: Unexpected keyword or identifier.
+
+! Failed to execute build script
+!
+! The Heroku Node.js npm Install buildpack allows customization...
+!
+! If the issue persists and you think you found a bug in the buildpack,
+! reproduce the issue locally with a minimal example. Open an issue in 
+! the buildpack's GitHub repository and include the details here:
+! __https://github.com/heroku/buildpacks-nodejs/issues__
+
+ERROR: failed to build: exit status 1
+Build failed ❌</code></pre>
+
+    <p>Wait. WAIT.</p>
+
+    <p><strong>"The Heroku Node.js npm Install buildpack"???</strong></p>
+
+    <p>I'm on <em>Koyeb</em>, not Heroku. Why is Heroku mentioned in my Koyeb logs?</p>
+
+    <p><em>Googles frantically</em></p>
+
+    <p><strong>Oh. OH.</strong></p>
+
+    <p>Koyeb uses Heroku buildpacks under the hood. They're literally running the same build system.</p>
+
+    <p>So when I thought I was using a "modern alternative to Heroku," I was actually just using... Heroku with extra steps and a prettier dashboard.</p>
+
+    <p>This is like ordering an off-brand soda and finding out it's made in the same factory as Coca-Cola.</p>
+
+    <p>Meanwhile, on my Mac:</p>
+
+    <pre><code>$ npm run build
+✅ Build successful</code></pre>
+
+    <p><strong>The Realization:</strong> I'm not fighting Koyeb. I'm fighting Heroku's buildpack, which Koyeb borrowed. And both my Mac and these platforms are Unix/LF based, so... what's the actual problem?</p>
+
+    <hr>
+
+    <h2>Initial Investigation: The "But We're All Unix!" Phase</h2>
+
+    <h3>The Setup</h3>
+    <ul>
+      <li><strong>My Mac:</strong> macOS (Unix-based, LF line endings)</li>
+      <li><strong>Koyeb:</strong> Linux containers (Unix-based, LF line endings)</li>
+      <li><strong>Koyeb's buildpack:</strong> Heroku's Node.js buildpack (also Unix/LF)</li>
+    </ul>
+
+    <p>We're all in the Unix family. We should be getting along!</p>
+
+    <h3>Hypothesis 1: Line Endings (Immediately Rejected)</h3>
+    <p>First instinct: "Maybe CRLF vs LF?"</p>
+
+    <pre><code>$ file src/modules/map/map.controller.ts
+src/modules/map/map.controller.ts: UTF-8 Unicode text</code></pre>
+
+    <p>LF confirmed. Not Windows CRLF nonsense.</p>
+
+    <pre><code>$ git config core.autocrlf
+input  # Correct for Unix systems</code></pre>
+
+    <p>So... not line endings.</p>
+
+    <p><strong>Status:</strong> Hypothesis dead on arrival.</p>
+
+    <h3>Hypothesis 2: Heroku Buildpack Caching</h3>
+    <p>I noticed this in the logs:</p>
+
+    <pre><code>! If the issue persists and you think you found a bug in the buildpack...
+! __https://github.com/heroku/buildpacks-nodejs/issues__</code></pre>
+
+    <p>Wait, so Koyeb is using Heroku's buildpack, which means:</p>
+    <ul>
+      <li>Heroku's caching behavior</li>
+      <li>Heroku's dependency resolution</li>
+      <li>Heroku's build environment quirks</li>
+    </ul>
+
+    <p>This isn't a Koyeb problem. This is a <strong>Heroku buildpack problem</strong> running on Koyeb infrastructure.</p>
+
+    <h3>Hypothesis 3: TypeScript Version Mismatch (BINGO)</h3>
+
+    <pre><code># My local environment
+$ npx tsc --version
+Version 5.3.3
+
+# My package.json
+$ cat package.json | grep typescript
+"typescript": "^5.3.0"</code></pre>
+
+    <p>That <code>^</code> symbol. That little caret of chaos.</p>
+
+    <p><strong>What it means:</strong></p>
+    <ul>
+      <li><code>^5.3.0</code> = "any version from 5.3.0 up to (but not including) 5.4.0"</li>
+      <li>My Mac: installed TypeScript 5.3.3 (latest in the 5.3.x range)</li>
+      <li>Koyeb/Heroku buildpack: cached TypeScript 5.3.0 from a week ago</li>
+    </ul>
+
+    <p><strong>The Heroku buildpack caches dependencies aggressively.</strong> Once it builds your app with TypeScript 5.3.0, it keeps using that version until you explicitly clear the cache or update your lock file.</p>
+
+    <p>So while I'm living my best life with 5.3.3 locally, Koyeb (via Heroku buildpack) is stuck in the past with 5.3.0.</p>
+
+    <hr>
+
+    <h2>Root Cause Analysis: The Crime Scene at Line 32</h2>
+    <p>Let me show you the code that made Heroku's buildpack (running on Koyeb) lose its mind:</p>
+
+    <pre><code>if (!userLocation || !propertyLocation) {
+  res.status(400).json({
+    success: false,
+    message: 'User location and property location are required'
+  });
+  return; 
+
+  // add this just to push a new update
+}</code></pre>
+
+    <p>That comment? That's the villain.</p>
+
+    <h3>What TypeScript 5.3.0 (Heroku Buildpack) Sees:</h3>
+
+    <pre><code>[Parser] return statement detected
+[Parser] blank line detected  
+[Parser] comment token detected
+[Parser] closing brace detected
+
+[Parser Brain]: 
+  "Is this comment part of return?"
+  "Is it standalone?"  
+  "Is it attached to the next statement?"
+  "SYNTAX ERROR: EXISTENTIAL CRISIS MODE"
+
+ERROR TS1434: Unexpected keyword or identifier</code></pre>
+
+    <p>The parser literally cannot decide what to do with a comment that has whitespace before it and a closing brace after it.</p>
+
+    <h3>What TypeScript 5.3.3 (My Mac) Sees:</h3>
+
+    <pre><code>[Parser] return statement
+[Parser] whitespace (whatever, it's fine)
+[Parser] comment token (cool, comments are legal)
+[Parser] closing brace
+
+[Parser Brain]: "Everything's fine, moving on."
+
+BUILD SUCCESSFUL ✅</code></pre>
+
+    <p><strong>The difference:</strong> Between 5.3.0 and 5.3.3, TypeScript improved its whitespace handling around comments in control flow contexts. My local version is chill. The buildpack's cached version is NOT.</p>
+
+    <h3>Why This Is a Heroku Buildpack Issue</h3>
+    <p>The error message literally tells us:</p>
+
+    <pre><code>! The Heroku Node.js npm Install buildpack allows customization...
+!
+! If the issue persists and you think you found a bug in the buildpack...</code></pre>
+
+    <p>Koyeb is using Heroku's buildpack, which means:</p>
+
+    <ol>
+      <li><strong>Aggressive caching:</strong> Once it installs <code>^5.3.0</code> and gets 5.3.0, it caches that FOREVER</li>
+      <li><strong>Semver resolution:</strong> Respects package-lock.json, but if that's not committed or gets regenerated, it picks whatever version is available at build time</li>
+      <li><strong>Build reproducibility:</strong> Supposed to be deterministic, but only if your lock file is committed</li>
+    </ol>
+
+    <hr>
+
+    <h2>Technical Deep Dive: Unix, LF, and Why None of That Matters Here</h2>
+
+    <h3>The Red Herring: Line Endings</h3>
+    <p>People (including me at 2 AM) love to blame line endings:</p>
+
+    <ul>
+      <li><strong>Windows:</strong> CRLF (<code>\r\n</code>)</li>
+      <li><strong>Unix (Mac/Linux):</strong> LF (<code>\n</code>)</li>
+    </ul>
+
+    <p>But here's the thing: <strong>This issue has nothing to do with line endings.</strong></p>
+
+    <p>Both macOS and Linux use LF. The Heroku buildpack runs on Linux (LF). My code has LF. Everyone's using LF.</p>
+
+    <p>The TypeScript parser doesn't care about the literal bytes <code>\r\n</code> vs <code>\n</code>. It cares about the <strong>Abstract Syntax Tree (AST)</strong> structure.</p>
+
+    <h3>What Actually Matters: Parser State Machine</h3>
+    <p>TypeScript's parser is a state machine that goes:</p>
+
+    <pre><code>Source Code
+    ↓
+Scanner/Lexer (tokenizes: keywords, symbols, whitespace, comments)
+    ↓
+Parser (builds AST) ← WE DIE HERE
+    ↓
+Binder (creates symbol tables)
+    ↓
+Type Checker (validates types)
+    ↓
+Emitter (outputs JavaScript)</code></pre>
+
+    <p>My code dies in <strong>Phase 2: Parser</strong> trying to build the AST.</p>
+
+    <p>The parser sees:</p>
+    <pre><code>return;    ← Statement node (complete)
+           ← Whitespace (creates separation)
+// comment ← Comment node (ambiguous association)
+}          ← Block end (unexpected context)</code></pre>
+
+    <p><strong>TypeScript 5.3.0 parser logic:</strong></p>
+    <pre><code>if (previousNode === ReturnStatement && currentToken === Comment) {
+  if (hasWhitespaceBetween && nextToken === CloseBrace) {
+    // Unclear if comment belongs to return or block
+    throw TS1434("Unexpected keyword or identifier");
+  }
+}</code></pre>
+
+    <p><strong>TypeScript 5.3.3 parser logic:</strong></p>
+    <pre><code>if (previousNode === ReturnStatement && currentToken === Comment) {
+  // Comments can float between statements, it's fine
+  parseCommentNode();
+  continue;
+}</code></pre>
+
+    <p>This is a <strong>parser improvement</strong>, not a line ending issue.</p>
+
+    <h3>Why Heroku Buildpack Caching Screwed Me</h3>
+    <p>Heroku's buildpack (which Koyeb uses) caches aggressively:</p>
+
+    <pre><code># First build
+- Detects package.json: "typescript": "^5.3.0"
+- Resolves to TypeScript 5.3.0 (current at the time)
+- Caches node_modules with TypeScript 5.3.0
+- Creates layer cache
+
+# Second build (my deploy)
+- Detects package.json hasn't changed
+- Uses cached node_modules (TypeScript 5.3.0)
+- Never checks if 5.3.3 exists
+- Builds with old version
+- FAILS because parser doesn't like my comment</code></pre>
+
+    <p>Meanwhile, my Mac:</p>
+    <pre><code>$ npm install
+- Resolves "^5.3.0"
+- Finds TypeScript 5.3.3 (latest)
+- Installs 5.3.3
+- Builds successfully</code></pre>
+
+    <p><strong>The problem:</strong> Semver ranges + aggressive caching = version drift between local and production.</p>
+
+    <hr>
+
+    <h2>Resolution Strategy: Fixing the Heroku Buildpack Chaos</h2>
+
+    <h3>The Immediate Fix (Tactical)</h3>
+
+    <p><strong>Step 1: Delete the cursed comment</strong></p>
+
+    <pre><code>// BEFORE (breaks Heroku buildpack)
+return; 
+
+// add this just to push a new update
+
+// AFTER (works everywhere)
+return;</code></pre>
+
+    <p>Why this works: Removes the parser ambiguity entirely.</p>
+
+    <p><strong>Step 2: Deploy</strong></p>
+
+    <pre><code>git add .
+git commit -m "fix: remove comment that TypeScript 5.3.0 hates"
+git push origin main</code></pre>
+
+    <p>Koyeb (via Heroku buildpack):</p>
+    <pre><code>✅ Build succeeded
+✅ Deployed</code></pre>
+
+    <p>Victory! But we're not done.</p>
+
+    <h3>The Long-term Fix (Strategic)</h3>
+
+    <h4>1. Pin TypeScript to Exact Version</h4>
+
+    <pre><code>// package.json - BEFORE
+{
+  "devDependencies": {
+    "typescript": "^5.3.0"  // ❌ Allows 5.3.x updates
+  }
+}
+
+// package.json - AFTER  
+{
+  "devDependencies": {
+    "typescript": "5.3.3"   // ✅ Exact version only
+  }
+}</code></pre>
+
+    <p>This tells the Heroku buildpack: "Install THIS EXACT VERSION, not whatever you feel like caching."</p>
+
+    <h4>2. Lock Node.js and npm Versions</h4>
+
+    <pre><code>{
+  "engines": {
+    "node": "18.19.1",
+    "npm": "10.2.4"
+  }
+}</code></pre>
+
+    <p>The Heroku buildpack respects the <code>engines</code> field and will use these exact versions.</p>
+
+    <h4>3. Regenerate and Commit Lock File</h4>
+
+    <pre><code># Delete everything
+rm -rf node_modules package-lock.json
+
+# Fresh install with exact versions
+npm install
+
+# Commit the lock file
+git add package.json package-lock.json
+git commit -m "chore: pin TypeScript to 5.3.3"
+git push origin main</code></pre>
+
+    <p>Now <code>package-lock.json</code> has TypeScript 5.3.3 locked in. The Heroku buildpack will respect this.</p>
+
+    <h4>4. Clear Koyeb's Build Cache</h4>
+
+    <p>In Koyeb dashboard:</p>
+    <ol>
+      <li>Go to your service settings</li>
+      <li>Find "Build Cache" or "Clear Cache"</li>
+      <li>Click it</li>
+      <li>Redeploy</li>
+    </ol>
+
+    <p>Or, force a clean build:</p>
+    <pre><code># Add empty commit to trigger rebuild
+git commit --allow-empty -m "chore: clear Koyeb cache"
+git push origin main</code></pre>
+
+    <h4>5. Verify Versions Match</h4>
+
+    <pre><code># Local
+$ npx tsc --version
+Version 5.3.3
+
+# In Koyeb logs after deploy
+[Building] Installing dependencies...
+[Building] typescript@5.3.3 installed
+[Building] Running npm run build...
+✅ Build successful</code></pre>
+
+    <hr>
+
+    <h2>The Senior Engineer Wisdom™ I Gained</h2>
+
+    <h3>1. Koyeb Uses Heroku Under the Hood (Mind = Blown)</h3>
+    <p>When I saw this in the logs:</p>
+
+    <pre><code>! The Heroku Node.js npm Install buildpack allows customization...</code></pre>
+
+    <p>I realized: <strong>Koyeb isn't a Heroku alternative. It's a Heroku buildpack wrapper with a prettier UI.</strong></p>
+
+    <p>This changes everything:</p>
+    <ul>
+      <li>Same caching behavior</li>
+      <li>Same build quirks</li>
+      <li>Same documentation applies</li>
+      <li>Same best practices</li>
+    </ul>
+
+    <h3>2. Semver Ranges + Caching = Pain</h3>
+
+    <pre><code>"typescript": "^5.3.0"  // ❌ "Surprise me with any 5.3.x version!"
+"typescript": "5.3.3"   // ✅ "I know exactly what I want"</code></pre>
+
+    <p>For build tools (TypeScript, Webpack, etc.), <strong>always pin exact versions</strong>.</p>
+
+    <p>For runtime dependencies, use <code>~</code> (patch updates only):</p>
+    <pre><code>"express": "~4.18.0"  // Allows 4.18.x patches, not 4.19.0</code></pre>
+
+    <h3>3. Unix/LF Doesn't Guarantee Compatibility</h3>
+    <p>All Unix systems use LF, but that doesn't mean code will build identically:</p>
+    <ul>
+      <li>Different TypeScript versions</li>
+      <li>Different Node.js versions</li>
+      <li>Different npm versions</li>
+      <li>Different package resolution</li>
+    </ul>
+
+    <p><strong>Environment parity requires version parity</strong>, not just OS parity.</p>
+
+    <h3>4. Comments Are Not Harmless</h3>
+    <p>A single comment with weird whitespace broke production.</p>
+
+    <p>Delete throwaway comments. Use Git for notes:</p>
+    <pre><code>git commit --allow-empty -m "trigger rebuild for cache refresh"</code></pre>
+
+    <h3>5. Read Your Build Logs Carefully</h3>
+    <p>That Heroku buildpack error message was THE clue that Koyeb uses Heroku under the hood. I almost missed it.</p>
+
+    <hr>
+
+    <h2>Epilogue: A Letter to Koyeb</h2>
+
+    <p>Dear Koyeb,</p>
+
+    <p>I love your UI. I love your developer experience. I love that you're trying to be better than Heroku.</p>
+
+    <p>But... you're literally running Heroku buildpacks.</p>
+
+    <p>Could you maybe... mention this more prominently in the docs? Like, right at the top?</p>
+
+    <p>"⚠️ We use Heroku buildpacks, so Heroku best practices apply."</p>
+
+    <p>Would've saved me 4 hours at 2 AM.</p>
+
+    <p>Still love you though,<br>
+    A Tired Developer</p>
+
+    <p>P.S. - Your dashboard is prettier than Heroku's. That counts for something.</p>
+
+    <hr>
+
+    <h2>TL;DR (For the Skimmers)</h2>
+
+    <p><strong>What happened:</strong></p>
+    <ul>
+      <li>Deployed to Koyeb</li>
+      <li>Got TypeScript build errors</li>
+      <li>Worked fine locally (Mac)</li>
+    </ul>
+
+    <p><strong>The twist:</strong></p>
+    <ul>
+      <li>Koyeb uses Heroku buildpacks under the hood</li>
+      <li>Error message literally said "Heroku Node.js npm Install buildpack"</li>
+      <li>Same caching behavior as Heroku</li>
+    </ul>
+
+    <p><strong>Why it broke:</strong></p>
+    <ul>
+      <li>Local Mac: TypeScript 5.3.3</li>
+      <li>Koyeb (via Heroku buildpack): TypeScript 5.3.0 (cached)</li>
+      <li>Different parser behavior around comments with whitespace</li>
+    </ul>
+
+    <p><strong>The villain:</strong></p>
+    <pre><code>return;
+
+// add this just to push a new update  ← This comment</code></pre>
+
+    <p><strong>The fix:</strong></p>
+    <ol>
+      <li>Deleted the comment</li>
+      <li>Pinned TypeScript: <code>"typescript": "5.3.3"</code></li>
+      <li>Pinned Node.js in <code>engines</code> field</li>
+      <li>Committed <code>package-lock.json</code></li>
+      <li>Cleared Koyeb build cache</li>
+    </ol>
+
+    <p><strong>Key lessons:</strong></p>
+    <ul>
+      <li>Koyeb = Heroku buildpacks + nice UI</li>
+      <li>Pin your build tools (no <code>^</code> or <code>~</code>)</li>
+      <li>Use <code>npm ci</code> for deterministic builds</li>
+      <li>Unix/LF doesn't guarantee build compatibility</li>
+      <li>Comments can break production</li>
+    </ul>
+
+    <hr>
+
+    <h2>The Meme That Sums It Up</h2>
+
+    <pre><code>Me: "I'll use Koyeb instead of Heroku"
+
+Koyeb build logs: "Heroku Node.js buildpack..."
+
+Me: "Wait—"
+
+Koyeb: "Always has been 🔫"</code></pre>
+
+    <hr>
+
+    <div class="footnote">
+      <p>Written at 5:47 AM after discovering Koyeb's secret. If you're debugging a similar issue, now you know: it's Heroku all the way down.</p>
+      
+      <p><strong>Using Koyeb and hit a weird build issue? Drop a comment. Let's compare Heroku buildpack war stories.</strong> 😅</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
