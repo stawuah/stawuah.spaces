@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A wrapper, a security entitlement and an on-chain register all trade as tokenised equity. Only one makes you an owner." />
+  <meta name="theme-color" content="#137a5f" />
+
+  <title>Three Things a Tokenised Share Can Be - stawuah.r</title>
+
+  <meta property="og:title" content="Three Things a Tokenised Share Can Be - stawuah.r" />
+  <meta property="og:description" content="A wrapper, a security entitlement and an on-chain register all trade as tokenised equity. Only one makes you an owner." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Three Things a Tokenised Share Can Be - stawuah.r" />
+  <meta name="twitter:description" content="A wrapper, a security entitlement and an on-chain register all trade as tokenised equity. Only one makes you an owner." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
+
+        <div class="routes">
+        <a href="writings.html" class="nav-route">writings</a>
+        <div class="divider"></div>
+        <a href="ccl.html" class="nav-route active">ccl</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
+
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route">writings</a>
+      <a href="ccl.html" class="nav-route active">ccl</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>Three Things a Tokenised Share Can Be</h1>
+        <p class="post-subtitle">A wrapper, a security entitlement, and an authoritative register can all trade under the
+          same ticker at the same price &mdash; and only one of them makes you an owner.</p>
+        <div class="post-meta"><span>9 September 2026</span> &bull; <span>8 min read</span> &bull;
+          <span>research cut-off 9 September 2026</span></div>
+
+        <div class="highlight-box">
+          <p><strong>Key takeaways</strong></p>
+          <ul>
+            <li>&ldquo;Tokenised equity&rdquo; now covers three structurally different instruments: an issuer-facing
+              wrapper, a tokenised security entitlement, and a register maintained on a ledger. They differ in what happens
+              when the entity you bought from fails.</li>
+            <li>The SEC&rsquo;s 1 September 2026 transfer-agent proposal is the first of these to touch the authoritative
+              ownership record itself, which makes it more consequential than the faster-settlement headlines around it.</li>
+            <li>Ghana&rsquo;s Act 1154 licenses intermediaries, not registers. Until the equity-record question is
+              addressed, a tokenised Ghana Stock Exchange share would be a wrapper by default rather than by design.</li>
+          </ul>
+        </div>
+
+        <div class="post-content">
+          <p>On 1 September 2026 the US Securities and Exchange Commission proposed a rewrite of its transfer-agent rules
+            &mdash; the plumbing that decides who is written down as the owner of a share. The
+            <a href="https://www.sec.gov/files/rules/proposed/2026/34-106246.pdf" target="_blank" rel="noreferrer">proposing release</a>
+            (34-106246) does something I did not expect to read this decade: it would expressly permit a transfer agent to use
+            distributed ledger technology as part of the master securityholder file, or as the entire file.</p>
+
+          <p>The master securityholder file is the authoritative list of registered owners. Not a mirror of it. The list.</p>
+
+          <p>Meanwhile, according to Solana&rsquo;s own
+            <a href="https://solana.com/news/overview-of-institutional-real-world-assets-on-solana" target="_blank" rel="noreferrer">institutional RWA reporting</a>,
+            97% of all on-chain tokenised-equities spot volume to date had settled on Solana as of late July 2026. Almost none of
+            that volume is a share. It is a claim on a company that holds a share, and the difference is the whole subject of this
+            piece.</p>
+
+          <h2>Why the distinction matters now</h2>
+
+          <p>Until this year you could treat &ldquo;tokenised equity&rdquo; as one category, because only one version existed in
+            any volume: an offshore wrapper. That is no longer true. Three structurally different things now share the name, and in
+            2026 all three acquired regulatory momentum within about eight months of each other. If you cannot tell them apart, you
+            cannot answer the only question that matters when something goes wrong: what do you actually hold a claim against?</p>
+
+          <h2>First principles: ownership is a record, not a token</h2>
+
+          <p>Share ownership in most markets is a hierarchy of records. At the top is the issuer&rsquo;s register, maintained by a
+            transfer agent, which names the registered holder. In the US that name is usually a depository nominee rather than you.
+            Below it sits your broker&rsquo;s book entry, which gives you a <em>security entitlement</em> &mdash; a property
+            interest in your broker&rsquo;s position, not title to a specific share. Below that, if you have bought synthetic
+            exposure, sits a contract with somebody who promises to track a price.</p>
+
+          <p>Tokenisation does not collapse this hierarchy. It picks a layer and puts it on a ledger. Which layer it picks is the
+            design decision that everything else follows from, and it is almost never stated in the marketing.</p>
+
+          <h2>The three layers, with numbers</h2>
+
+          <p>Say you hold what a screen calls 100 tokenised shares of a company trading at $50. Same ticker, same price, same wallet.
+            Now the entity you bought from fails.</p>
+
+          <p><strong>Layer one: the wrapper.</strong> Kraken&rsquo;s xStocks programme, issued by Backed and settled on Solana for
+            non-US retail, is documented in its own
+            <a href="https://docs.xstocks.fi/docs/product-legal-overview" target="_blank" rel="noreferrer">product legal overview</a>
+            as a bearer debt instrument &mdash; a tracker certificate giving economic exposure. It confers no shareholder voting
+            rights. The documentation is candid that collateral may not always consist of the underlying shares. So your $5,000 is an
+            unsecured claim in an issuer&rsquo;s insolvency, and you queue with other creditors. You never appear on the
+            company&rsquo;s register, because you were never meant to.</p>
+
+          <p><strong>Layer two: the tokenised entitlement.</strong> In December 2025 the SEC&rsquo;s Division of Trading and Markets
+            granted the Depository Trust Company no-action relief for a three-year pilot tokenising security entitlements in certain
+            highly liquid securities. On 18 March 2026 the Commission
+            <a href="https://www.federalregister.gov/documents/2026/01/30/2026-01823/self-regulatory-organizations-the-nasdaq-stock-market-llc-notice-of-filing-of-a-proposed-rule-change" target="_blank" rel="noreferrer">approved a Nasdaq rule change</a>
+            (SR-NASDAQ-2025-072) letting the exchange trade certain securities in tokenised form, building on that pilot. Here the
+            token represents the entitlement, so your $5,000 sits inside the customer-property regime rather than the creditor queue,
+            and your votes travel up the intermediary chain as they always did. The register still names the depository nominee. The
+            chain has become a faster way to move an entitlement, not a new kind of ownership.</p>
+
+          <p><strong>Layer three: the register itself.</strong> This is what the September proposal contemplates. If a transfer
+            agent&rsquo;s master securityholder file is maintained on a ledger, the token is not evidence of a claim on an
+            intermediary &mdash; the entry <em>is</em> the record of registered ownership. Your $5,000 is not exposed to the failure
+            of a wrapper issuer or a broker, because neither is standing between you and the register. That is a genuinely different
+            instrument from layers one and two, and it is the only one where &ldquo;the blockchain is the source of truth&rdquo; is a
+            legal statement rather than a slogan.</p>
+
+          <p>Three tokens. One screen price. Three completely different answers to a single insolvency.</p>
+
+          <h2>The mechanics are further along than the law</h2>
+
+          <p>What strikes me, reading the proposal against the technology, is that the technical primitives for layer three already
+            exist and have for a while. Token-2022 on Solana supports transfer hooks that enforce allowlists and per-wallet
+            eligibility, so only verified participants can hold or move a restricted asset, and confidential-balance extensions that
+            keep positions private while remaining auditable to authorised parties. Those are recognisably the controls a registrar
+            needs: restricted transfer, eligibility, auditability, legend enforcement. The proposal even contemplates tightening
+            restrictive legends, possibly through smart contracts.</p>
+
+          <p>So the constraint was never cryptographic. It was that nobody had authority to treat the ledger as the book of record.
+            That is what a rule change can grant and a library cannot.</p>
+
+          <h2>What the proposal does not do</h2>
+
+          <p>It is a proposal. It was
+            <a href="https://www.federalregister.gov/documents/2026/09/04/2026-18190/transfer-agent-rules" target="_blank" rel="noreferrer">published in the Federal Register on 4 September 2026</a>
+            with a 60-day comment period, which puts the close in early November. Nothing is permitted yet. It applies to the roughly
+            273 registered transfer agents in the US and to nobody else, and technology-neutral drafting is not an endorsement: the
+            release is explicit that a transfer agent using DLT in its master file presents different risks from a traditional mutual
+            fund agent, and it would add Form TA-2 reporting on DLT use plus expanded safeguarding and cybersecurity obligations.
+            Permission arrives attached to supervision.</p>
+
+          <p>The staff had already said the obvious thing in a joint statement in January 2026: tokenised stock remains an equity
+            security, and offers and sales remain subject to registration or an available exemption. The Division of Trading and
+            Markets keeps the same position in its
+            <a href="https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-relating-crypto-asset-activities-distributed-ledger-technology" target="_blank" rel="noreferrer">FAQ on crypto asset activities and distributed ledger technology</a>.
+            Putting a share on a ledger changes its plumbing, not its legal character.</p>
+
+          <h2>The strongest argument against my framing</h2>
+
+          <p>Layered claims are not a crypto pathology; they are how securities markets already work. An American Depositary Receipt
+            is a wrapper. A nominee account is an entitlement. Investors have held both for decades, accepted the intermediary risk
+            knowingly, and been served well by intermediaries who handle corporate actions, tax and recovery competently. On that
+            view, tokenised wrappers are simply an old structure with new settlement, and disclosed clearly if you read the
+            prospectus &mdash; xStocks&rsquo; EU distribution runs on a base prospectus approved by Liechtenstein&rsquo;s FMA under
+            the EU Prospectus Regulation, which is more disclosure than most retail products carry.</p>
+
+          <p>I accept most of that. My objection is narrower: the disclosure is accurate and the distribution is not. A product
+            documented as a bearer tracker certificate is presented on a trading screen as a company&rsquo;s ticker at the
+            company&rsquo;s price. The gap between the legal document and the buying experience is where retail harm accumulates,
+            and no amount of prospectus rigour closes it.</p>
+
+          <p>I also want to be careful about the pace. The Commission is reported to have proposed repealing Reg NMS Rule 611 and
+            Rule 610(e) in June 2026, which commentators read as removing a structural barrier to on-chain equity trading, since an
+            automated market maker cannot satisfy Rule 611&rsquo;s trade-through protection by construction. But the separate
+            innovation exemption for tokenised stocks has been reported as delayed in May and cancelled in August. I have not yet
+            read those two items in the primary releases, so treat both as reported rather than verified, and treat analyst
+            expectations of a finalised repeal in early 2027 as expectations rather than a timetable.</p>
+
+          <h2>Where this leaves Ghana</h2>
+
+          <p>Ghana&rsquo;s <a href="https://www.bog.gov.gh/virtual-assets/" target="_blank" rel="noreferrer">Virtual Asset Service
+            Providers Act, 2025 (Act 1154)</a> was passed by Parliament on 19 December 2025 and signed on 30 December, with oversight
+            split on activity lines between the Bank of Ghana and the SEC. The Bank has created a Virtual Assets Department, admitted
+            six firms to a one-year sandbox, and said in July 2026 that implementing guidelines were well advanced. The SEC is
+            piloting gold-backed and tokenised gold products with the Ghana Gold Board and plans to license independent custodians
+            for them.</p>
+
+          <p>Notice which layer that framework addresses. Act 1154 licenses <em>intermediaries</em> &mdash; the people who hold and
+            move virtual assets on your behalf. Starting with gold under independent custody is a sensible choice precisely because a
+            commodity claim can be made honest with a custodian and an audit. Equities are harder, because the authoritative record
+            does not belong to a VASP. Trades on the Ghana Stock Exchange settle through a central securities depository on a T+3
+            basis, and the register is the depository&rsquo;s and the registrar&rsquo;s business, not a licensee&rsquo;s.</p>
+
+          <p>Which means a tokenised GSE share, if anyone builds one before the equity-record question is settled, will be a layer
+            one wrapper by default. Not by intent &mdash; by the absence of a rule that lets it be anything else. That seems worth
+            saying now, while the guidelines are still being drafted, rather than after the first product launches.</p>
+
+          <h2>What I currently believe</h2>
+
+          <p>I think layer three is the only version of tokenised equity that changes anything structurally, and that most of what is
+            called tokenised equity today is layer one wearing layer three&rsquo;s language. I think the SEC proposal is more
+            consequential than the Reg NMS headlines it was buried under, because a settlement-speed change is an efficiency and a
+            book-of-record change is a change in what ownership <em>is</em>.</p>
+
+          <p>What I have not worked out: whether a register on a public ledger can satisfy the safeguarding and cybersecurity
+            obligations the same proposal imposes without being permissioned so heavily that it stops resembling a public chain. I
+            also do not know how corporate actions, transfer-agent liability and error correction work when the record is
+            append-only and the mistake is already final. I am reading the release properly and will write about that separately.</p>
+
+          <p>And I would treat any figure for the size of this market with suspicion. Reported tokenised-equity totals for July 2026
+            range from a few hundred million dollars to billions depending on whether wrappers, funds and treasuries are counted, and
+            projections like the Citi Institute base case of $5.5 trillion by 2030 do not publish a method I can check. The
+            distinction between the three layers is verifiable from primary documents. The market size is not.</p>
+
+        </div>
+
+        <div class="block">
+          <h2>fact check</h2>
+          <div class="data-table">
+            <table>
+              <thead>
+                <tr><th>Claim</th><th>Source</th></tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td>SEC proposed a rewrite of its transfer-agent rules on 1 September 2026 (Release 34-106246, File No. S7-2026-30).</td>
+              <td><a href="https://www.sec.gov/files/rules/proposed/2026/34-106246.pdf" target="_blank" rel="noreferrer">SEC proposing release</a></td>
+            </tr>
+            <tr>
+              <td>The proposal would permit DLT as part of, or as the entirety of, the master securityholder file, and adds Form TA-2 reporting on DLT use.</td>
+              <td><a href="https://www.sec.gov/files/34-106246-fact-sheet.pdf" target="_blank" rel="noreferrer">SEC fact sheet</a></td>
+            </tr>
+            <tr>
+              <td>Published in the Federal Register on 4 September 2026 with a 60-day comment period.</td>
+              <td><a href="https://www.federalregister.gov/documents/2026/09/04/2026-18190/transfer-agent-rules" target="_blank" rel="noreferrer">Federal Register</a></td>
+            </tr>
+            <tr>
+              <td>It is the first substantive update to these rules in roughly 40 years and covers about 273 registered transfer agents.</td>
+              <td><a href="https://www.sec.gov/newsroom/press-releases/2026-81-sec-proposes-modernize-rules-registered-transfer-agents" target="_blank" rel="noreferrer">SEC press release 2026-81</a></td>
+            </tr>
+            <tr>
+              <td>SEC approved a Nasdaq rule change enabling trading of certain securities in tokenised form (SR-NASDAQ-2025-072), 18 March 2026.</td>
+              <td><a href="https://www.federalregister.gov/documents/2026/01/30/2026-01823/self-regulatory-organizations-the-nasdaq-stock-market-llc-notice-of-filing-of-a-proposed-rule-change" target="_blank" rel="noreferrer">Federal Register notice of filing</a></td>
+            </tr>
+            <tr>
+              <td>xStocks are bearer debt tracker certificates conferring no shareholder voting rights; collateral may not always consist of the underlying shares.</td>
+              <td><a href="https://docs.xstocks.fi/docs/product-legal-overview" target="_blank" rel="noreferrer">xStocks product legal overview</a></td>
+            </tr>
+            <tr>
+              <td>97% of on-chain tokenised-equities spot volume to date had settled on Solana as of late July 2026. Protocol's own reporting, not an independent audit.</td>
+              <td><a href="https://solana.com/news/overview-of-institutional-real-world-assets-on-solana" target="_blank" rel="noreferrer">Solana institutional RWA overview</a></td>
+            </tr>
+            <tr>
+              <td>Token-2022 transfer hooks enforce allowlists and per-wallet eligibility; confidential-balance extensions keep positions auditable to authorised parties.</td>
+              <td><a href="https://solana.com/news/overview-of-institutional-real-world-assets-on-solana" target="_blank" rel="noreferrer">Solana institutional RWA overview</a></td>
+            </tr>
+            <tr>
+              <td>Ghana's Virtual Asset Service Providers Act, 2025 (Act 1154) splits oversight between the Bank of Ghana and the SEC on activity lines.</td>
+              <td><a href="https://www.bog.gov.gh/virtual-assets/" target="_blank" rel="noreferrer">Bank of Ghana, Virtual Assets</a></td>
+            </tr>
+            <tr>
+              <td>SEC staff position that tokenised stock remains an equity security subject to registration or an exemption.</td>
+              <td><a href="https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-relating-crypto-asset-activities-distributed-ledger-technology" target="_blank" rel="noreferrer">SEC Division of Trading and Markets FAQ</a></td>
+            </tr>
+            <tr>
+              <td>DTC no-action relief (December 2025) for a three-year pilot tokenising security entitlements; Reg NMS Rule 611 / 610(e) repeal proposal (June 2026); innovation-exemption delays.</td>
+              <td>Reported in secondary coverage; not yet verified against a primary release</td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>social</h2>
+          <p class="post-meta">linkedin</p>
+          <p>The SEC&rsquo;s transfer-agent proposal from 1 September got less attention than the Reg NMS headlines, and I
+            think that is the wrong way round. Faster settlement is an efficiency. Letting a distributed ledger <em>be</em>
+            the master securityholder file is a change in what ownership is. Three things currently trade as
+            &ldquo;tokenised equity&rdquo;: a bearer tracker certificate, a tokenised security entitlement, and an
+            authoritative register. Same ticker, same price, three different answers to an insolvency. I wrote up the
+            distinction, with the primary documents.</p>
+
+          <p class="post-meta">x</p>
+          <p>&ldquo;Tokenised equity&rdquo; is three different instruments.<br />
+            1. wrapper: bearer debt, no votes, creditor queue<br />
+            2. entitlement: DTC pilot, customer property, register unchanged<br />
+            3. the register itself: SEC transfer-agent proposal, 1 Sept 2026<br />
+            97% of on-chain equity volume is #1. Only #3 changes anything.</p>
+
+          <p class="post-meta">developer community</p>
+          <p>Reading the SEC&rsquo;s transfer-agent proposal against Token-2022 and the interesting part is that the
+            primitives were never the blocker. Transfer hooks give you allowlists and per-wallet eligibility, confidential
+            balances give you auditable privacy &mdash; that is most of what a registrar needs. What was missing was
+            authority to treat the ledger as the book of record, which is a rule change, not a library. Open question I
+            cannot answer yet: can a register on a public chain meet the same proposal&rsquo;s safeguarding and
+            cybersecurity obligations without being permissioned into something that is no longer a public chain?</p>
+        </div>
+
+        <div class="block">
+          <h2>publishing notes</h2>
+          <ul>
+            <li><strong>Slug:</strong> <code>three-things-a-tokenised-share-can-be</code></li>
+            <li><strong>Meta description:</strong> A wrapper, a security entitlement and an on-chain register all trade as
+              tokenised equity. Only one makes you an owner. (139 characters)</li>
+            <li><strong>Research cut-off:</strong> 9 September 2026</li>
+          </ul>
+        </div>
+
+        <div class="footnote">
+          <p>This is educational writing about market structure and does not constitute legal, financial, or investment
+            advice. Nothing here is a recommendation to buy or sell any asset. Regulatory positions described as proposals
+            are not in force.</p>
+          <p><a href="ccl.html">&larr; current career life</a></p>
+        </div>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

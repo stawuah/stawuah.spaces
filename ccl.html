@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Current career life: tokenisation, real-world assets, stablecoins and what a token holder actually owns." />
+  <meta name="theme-color" content="#137a5f" />
+
+  <title>ccl - stawuah.r</title>
+
+  <meta property="og:title" content="ccl - stawuah.r" />
+  <meta property="og:description" content="Current career life: tokenisation, real-world assets, stablecoins and what a token holder actually owns." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ccl - stawuah.r" />
+  <meta name="twitter:description" content="Current career life: tokenisation, real-world assets, stablecoins and what a token holder actually owns." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
+
+        <div class="routes">
+        <a href="writings.html" class="nav-route">writings</a>
+        <div class="divider"></div>
+        <a href="ccl.html" class="nav-route active">ccl</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
+
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route">writings</a>
+      <a href="ccl.html" class="nav-route active">ccl</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>current career life</h1>
+        <p class="post-subtitle">What happens when ownership, payments, and financial assets become programmable?</p>
+        <div class="post-meta"><span>ccl</span> &bull; <span>updated September 2026</span></div>
+
+        <div class="post-content">
+          <p>I write and build as Stephen Awuah Nyameke. This page is the honest version of what I am working on right now:
+            tokenisation, and what has to be true off-chain for a token to mean anything on-chain.</p>
+
+          <p>I am learning deeply and building in public. I am not a lawyer, a regulator, a financial adviser, an institutional
+            trader, or an established authority in this industry, and nothing here is investment advice. What I can offer is
+            precision about mechanics, and honesty about what I have not worked out yet.</p>
+        </div>
+
+        <div class="block">
+          <h2>the question</h2>
+          <p>Most writing about tokenised assets stops at the price. The interesting part sits one layer down: the bridge
+            between a token on a ledger and the legal rights it is supposed to carry. A transfer can settle in four hundred
+            milliseconds and still leave the question of who owns what entirely unresolved.</p>
+          <p>That gap &mdash; between technical finality and legal finality &mdash; is what I am writing about. It sits at the
+            intersection of technology, economics, law, and market structure, and it is where most of the difficulty lives.</p>
+        </div>
+
+        <div class="block">
+          <h2>token economics from first principles</h2>
+          <p>I wrote a 32-page educational book, <em>Token Economics from First Principles</em>. It is the foundation for
+            everything else on this page, and it works through:</p>
+          <ul>
+            <li>what tokens represent, and the rights that sit behind them;</li>
+            <li>tokenisation as distinct from token economics;</li>
+            <li>supply, inflation, burns, vesting, unlocks, and dilution;</li>
+            <li>demand, velocity, value capture, pricing, and liquidity;</li>
+            <li>stocks, shares, valuation, dividends, and company ownership &mdash; and why a token is not a share;</li>
+            <li>tokenised securities and real-world assets;</li>
+            <li>payments, fees, foreign exchange, stablecoins, and settlement;</li>
+            <li>Solana economics: accounts, programs, SPL Token, and Token-2022;</li>
+            <li>custody, NAV, yield, oracles, redemption, and legal claims;</li>
+            <li>RWA issuance and lifecycle mechanics;</li>
+            <li>delivery versus payment, governance, failure modes, and due diligence.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>chainpay, as the working case study</h2>
+          <p><a href="projects.html">ChainPay</a> is an agentic, policy-controlled stablecoin payment protocol on Solana. It
+            exists to test one question in code rather than in prose:</p>
+          <blockquote>How can AI agents make stablecoin payments without receiving unrestricted wallet access?</blockquote>
+          <p>I am designing and testing user-approved on-chain payment mandates, spending limits, approved agents and
+            recipients, replay protection, revocation, settlement, and verifiable receipts. It is unfinished, and I would
+            rather say that plainly than describe a devnet build as though it were infrastructure.</p>
+        </div>
+
+        <div class="block">
+          <h2>what i am tracking</h2>
+          <p>These are moving themes, not settled facts. I revise them as the evidence changes.</p>
+          <ul>
+            <li>issuer-sponsored tokenised securities against third-party wrappers;</li>
+            <li>what a holder of a tokenised equity actually owns: direct title, beneficial interest, security entitlement,
+              synthetic exposure, or only a contractual claim;</li>
+            <li>tokenised Treasury bills, money-market funds, private credit, invoices, commodities, and property;</li>
+            <li>custody, bankruptcy remoteness, redemption, authoritative ownership records, transfer agents, and investor
+              recovery;</li>
+            <li>stablecoins against tokenised bank deposits against central-bank money as the settlement asset;</li>
+            <li>atomic settlement, delivery versus payment, payment versus payment, and reduced prefunding;</li>
+            <li>interoperability, and the risk of ending up with fragmented tokenised-market islands;</li>
+            <li>Token-2022 extensions: permissioning, transfer restrictions, confidential transfers, compliance controls;</li>
+            <li>twenty-four-hour markets, liquidity fragmentation, corporate actions, dividends, voting rights, and price
+              discovery for tokenised equities;</li>
+            <li>agentic payments, and how autonomous software can touch stablecoins safely;</li>
+            <li>privacy, identity, compliance, oracle risk, smart-contract risk, and governance;</li>
+            <li>what tokenised finance realistically means for Ghana and Africa &mdash; and the difference between access and
+              genuine inclusion.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>how i write about it</h2>
+          <p>I work from primary sources: regulators and central banks, legislation and official consultations, rule filings and
+            court decisions, the BIS, IMF, World Bank and IOSCO, and issuer, custodian and protocol documentation. Secondary
+            reporting is for discovery, not for citation. For anything concerning Ghana or the wider continent I go to the Bank
+            of Ghana, Ghana&rsquo;s SEC, and the relevant African institutions rather than assuming US or EU rules travel.</p>
+          <p>I keep five things separate: confirmed facts, company or regulator proposals, marketing claims, my own analysis,
+            and my own opinion. I date time-sensitive claims and state the research cut-off. I avoid market-size figures whose
+            measurement method is unclear, and I do not describe anything as the first, fully backed, regulated, risk-free, or
+            legally compliant without saying exactly what that means.</p>
+          <p>I do not recommend buying or selling anything.</p>
+        </div>
+
+        <div class="block recent-posts">
+          <h2>writing in this section</h2>
+          <ul class="post-list">
+            <li class="post-list-item">
+              <a href="ccl-three-things-a-tokenised-share-can-be.html">
+                <div class="post-list-item__meta">
+                  <div>
+                    <h4 class="post-list-item-meta__title">Three Things a Tokenised Share Can Be</h4> &middot;
+                    <span class="publish-date post-meta">9 September 2026</span>
+                  </div>
+                  <p class="post-list-item-meta__summary">a wrapper, a security entitlement and an on-chain register all
+                    trade as tokenised equity &mdash; only one makes you an owner</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footnote">
+          <p>Everything in this section is educational and reflects my own reading and building. It is not legal, financial, or
+            investment advice.</p>
+        </div>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
