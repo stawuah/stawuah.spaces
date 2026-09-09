@@ -1,260 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="from 10,000 queries to sub-second performance with bounding box filtering" />
+  <meta name="theme-color" content="#137a5f" />
+
   <title>Optimizing Geospatial Property Search - stawuah.r</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background-color: #fff;
-      padding: 0;
-      margin: 0;
-    }
+  <meta property="og:title" content="Optimizing Geospatial Property Search - stawuah.r" />
+  <meta property="og:description" content="from 10,000 queries to sub-second performance with bounding box filtering" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Optimizing Geospatial Property Search - stawuah.r" />
+  <meta name="twitter:description" content="from 10,000 queries to sub-second performance with bounding box filtering" />
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px 100px 20px;
-    }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-    .header {
-      margin-bottom: 50px;
-    }
-
-    .header h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #000;
-    }
-
-    .header .breadcrumb {
-      font-size: 0.9rem;
-      color: #737373;
-      margin-bottom: 30px;
-    }
-
-    .header .breadcrumb a {
-      color: #737373;
-      text-decoration: none;
-    }
-
-    .header .breadcrumb a:hover {
-      color: #000;
-    }
-
-    nav {
-      position: absolute;
-      top: 60px;
-      right: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    nav a {
-      color: #404040;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #000;
-    }
-
-    .article-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #000;
-      line-height: 1.2;
-    }
-
-    .article-meta {
-      font-size: 0.95rem;
-      color: #737373;
-      margin-bottom: 50px;
-    }
-
-    .article-content {
-      font-size: 1.05rem;
-      color: #2a2a2a;
-      line-height: 1.8;
-    }
-
-    .article-content h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    .article-content h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-top: 35px;
-      margin-bottom: 15px;
-      color: #000;
-    }
-
-    .article-content p {
-      margin-bottom: 25px;
-    }
-
-    .article-content a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .article-content a:hover {
-      border-bottom: 1px solid #0066cc;
-    }
-
-    .article-content strong {
-      color: #000;
-      font-weight: 600;
-    }
-
-    .article-content ul {
-      margin-bottom: 25px;
-      padding-left: 25px;
-    }
-
-    .article-content ul li {
-      margin-bottom: 10px;
-    }
-
-    .article-content pre {
-      background-color: #f5f5f5;
-      padding: 20px;
-      border-radius: 6px;
-      overflow-x: auto;
-      margin: 25px 0;
-      border: 1px solid #e8e8e8;
-    }
-
-    .article-content code {
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 0.9em;
-    }
-
-    .article-content pre code {
-      color: #2a2a2a;
-      background: none;
-      padding: 0;
-    }
-
-    .article-content :not(pre) > code {
-      background-color: #f5f5f5;
-      padding: 2px 6px;
-      border-radius: 3px;
-      color: #e83e8c;
-    }
-
-    .performance-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 30px 0;
-      font-size: 0.95rem;
-    }
-
-    .performance-table th,
-    .performance-table td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #e8e8e8;
-    }
-
-    .performance-table th {
-      background-color: #f9f9f9;
-      font-weight: 600;
-      color: #000;
-    }
-
-    .performance-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .footnote {
-      font-size: 0.9rem;
-      color: #737373;
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #e8e8e8;
-      font-style: italic;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        border-bottom: 1px solid #e8e8e8;
-        padding: 15px 20px;
-        z-index: 100;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .container {
-        padding: 80px 20px 80px 20px;
-      }
-
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .article-content h2 {
-        font-size: 1.4rem;
-      }
-
-      .article-content h3 {
-        font-size: 1.2rem;
-      }
-
-      .article-content pre {
-        padding: 15px;
-        font-size: 0.85rem;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
 
-<nav>
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="writings.html">writings</a>
-  <a href="projects.html">projects</a>
-</nav>
+        <div class="routes">
+        <a href="writings.html" class="nav-route active">writings</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
 
-<div class="container">
-  <div class="header">
-    <h1>Stephen Awuah</h1>
-    <p class="breadcrumb"><a href="index.html">home</a> / <a href="writings.html">writings</a> / optimizing geospatial property search</p>
-  </div>
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
 
-  <h1 class="article-title">optimizing geospatial property search: from 10,000 queries to sub-second performance</h1>
-  
-  <div class="article-meta">January 22, 2026 • Stephen Awuah • 15 min read</div>
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route active">writings</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>Optimizing Geospatial Property Search</h1>
+        <p class="post-subtitle">From 10,000 queries to sub-second performance with bounding-box filtering</p>
+        <div class="post-meta"><span>January 22, 2025</span> &bull; <span>15 min read</span></div>
 
-  <div class="article-content">
+        <div class="post-content">
     <h2>The Problem</h2>
     <p>While building a real estate platform with location-based property notifications, I encountered a critical performance bottleneck. The initial implementation was simple but catastrophically inefficient:</p>
 
@@ -265,9 +77,9 @@ const allProps = await db
   .where(eq(properties.status, 'active'));
 
 // Then filters 10,000+ properties in memory
-const filtered = allProps.filter((p) => {
+const filtered = allProps.filter((p) =&gt; {
   const dist = haversine(userLat, userLon, p.latitude, p.longitude);
-  return dist <= radius;
+  return dist &lt;= radius;
 });</code></pre>
 
     <p>With 10,000+ active properties in the database, this meant:</p>
@@ -325,11 +137,11 @@ const maxLon = userLon + lonDelta;</code></pre>
     <h3>Stage 2: Precise Circle Filter (Application Level)</h3>
     <p>After fetching the reduced dataset, we apply the precise haversine formula to filter to an exact circular radius:</p>
 
-    <pre><code>const filtered = candidateProps.filter((p) => {
+    <pre><code>const filtered = candidateProps.filter((p) =&gt; {
   const lat = parseFloat(p.latitude);
   const lon = parseFloat(p.longitude);
   const dist = haversine(userLat, userLon, lat, lon);
-  return dist <= radius;
+  return dist &lt;= radius;
 });</code></pre>
 
     <h2>The Complete Implementation</h2>
@@ -373,10 +185,10 @@ const maxLon = userLon + lonDelta;</code></pre>
   ];
 
   // Optional filters
-  if (minBedrooms > 0) {
+  if (minBedrooms &gt; 0) {
     conditions.push(gte(properties.bedrooms, minBedrooms));
   }
-  if (types.length > 0) {
+  if (types.length &gt; 0) {
     conditions.push(inArray(properties.propertyType, types));
   }
 
@@ -387,13 +199,13 @@ const maxLon = userLon + lonDelta;</code></pre>
     .where(and(...conditions));
 
   // Precise distance filtering
-  return candidateProps.filter((p) => {
+  return candidateProps.filter((p) =&gt; {
     const lat = parseFloat(p.latitude || '0');
     const lon = parseFloat(p.longitude || '0');
     if (isNaN(lat) || isNaN(lon)) return false;
     
     const dist = this.haversine(loc.latitude, loc.longitude, lat, lon);
-    return dist <= radius;
+    return dist &lt;= radius;
   });
 }
 
@@ -489,8 +301,25 @@ private haversine(lat1: number, lon1: number, lat2: number, lon2: number) {
     <div class="footnote">
       <p>Have you optimized geospatial queries in your apps? What techniques worked for you? Feel free to reach out and share your experiences!</p>
     </div>
-  </div>
-</div>
+  
+        </div>
 
+        <p><a href="writings.html">&larr; all writings</a></p>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
+
 </html>

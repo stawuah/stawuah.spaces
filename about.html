@@ -1,333 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About - Stawuah</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stephen Awuah - software and protocol engineer from Ghana. What I build and how I work." />
+  <meta name="theme-color" content="#137a5f" />
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background-color: #fafafa;
-      padding: 0;
-      margin: 0;
-    }
+  <title>about - stawuah.r</title>
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
+  <meta property="og:title" content="about - stawuah.r" />
+  <meta property="og:description" content="Stephen Awuah - software and protocol engineer from Ghana. What I build and how I work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="about - stawuah.r" />
+  <meta name="twitter:description" content="Stephen Awuah - software and protocol engineer from Ghana. What I build and how I work." />
 
-    nav {
-      position: absolute;
-      top: 60px;
-      right: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-    nav a {
-      color: #404040;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #000;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 40px;
-      color: #000;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .intro {
-      margin-bottom: 50px;
-    }
-
-    .intro p {
-      font-size: 1rem;
-      color: #2a2a2a;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .section h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    .section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .section ul li {
-      font-size: 1rem;
-      color: #2a2a2a;
-      margin-bottom: 14px;
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.6;
-    }
-
-    .section ul li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .section ul li a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.2s;
-    }
-
-    .section ul li a:hover {
-      border-bottom: 1px solid #0066cc;
-    }
-
-    .status {
-      display: inline-block;
-      font-size: 0.85rem;
-      padding: 2px 8px;
-      border-radius: 3px;
-      margin-left: 8px;
-      font-weight: 500;
-    }
-
-    .status.success {
-      background-color: #d4edda;
-      color: #155724;
-    }
-
-    .status.failed {
-      background-color: #f8d7da;
-      color: #721c24;
-    }
-
-    .status.ongoing {
-      background-color: #fff3cd;
-      color: #856404;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 40px;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding: 25px 20px;
-      background-color: #c8ff00;
-      margin-left: 0;
-      margin-right: 0;
-      text-align: center;
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    }
-
-    .footer-content {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .footer-email {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 8px;
-    }
-
-    .footer-email a {
-      color: #000;
-      text-decoration: none;
-    }
-
-    .footer-email a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .footer-socials a {
-      color: #000;
-      text-decoration: underline;
-      font-size: 0.85rem;
-      transition: opacity 0.2s;
-    }
-
-    .footer-socials a:hover {
-      opacity: 0.7;
-    }
-
-    .footer-socials span {
-      color: #000;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #fafafa;
-        border-bottom: 1px solid #e8e8e8;
-        padding: 15px 20px;
-        z-index: 100;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .container {
-        padding: 80px 20px 40px 20px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .footer-email {
-        font-size: 1.5rem;
-      }
-
-      .footer-socials {
-        flex-wrap: wrap;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
 
-<nav>
-  <a href="index.html">home</a>
-  <a href="about.html" class="active">about</a>
-  <a href="writings.html">writings</a>
-  <!-- <a href="projects.html">projects</a>
-  <a href="leisure.html">leisure</a>
-  <a href="contact.html">contact</a> -->
-</nav>
+        <div class="routes">
+        <a href="writings.html" class="nav-route">writings</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route active">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
 
-<div class="container">
-  <h1>About</h1>
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
 
-  <div class="intro">
-    <p>I'm Stephen Awuah, a software engineer from Ghana 🇬🇭 building things that matter. I'm working toward becoming a core Docker (Moby) contributor, with a focus on testing and reliability. Outside of code, I enjoy running, cryptography, and distributed systems.</p>
-  </div>
-
-  <div class="section">
-    <h2>Fun Facts</h2>
-    <ul>
-      <li>I co-founded <a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a>, a real estate platform for Ghana. <span class="status ongoing">[ongoing]</span></li>
-      <li>I run 2km in under 5 minutes.</li>
-      <li>I once built over 100+ JavaScript projects in a single year to master the language. <span class="status success">[success]</span></li>
-      <li>I'm fascinated by zero-knowledge proofs and the <a href="https://noir-lang.org/" target="_blank">Noir</a> programming language.</li>
-      <li>Failed my third open source contribution on <a href="https://sablier.com/" target="_blank">Sablier Labs</a>. <span class="status failed">[failed]</span> (My motivation to contribute to Chainlink and Docker Moby, and both worked hahahahaha)</li>
-      <li>Contributed to <a href="https://chain.link/" target="_blank">Chainlink</a> open source. <span class="status success">[success]</span></li>
-      <li>About to contribute to <a href="https://github.com/moby/moby" target="_blank">Docker Moby</a> engine as open source. <span class="status ongoing">[ongoing]</span></li>
-      <li>Ideation on <a href="https://github.com/orgs/noir-lang/discussions/10234" target="_blank">NoirZeppelin</a> - ZK version of OpenZeppelin.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Strengths</h2>
-    <ul>
-      <li>software design (go, rust, k8s, cloud)</li>
-      <li>research (spikes, prototypes) & development.</li>
-      <li>going from zero-to-one, could be anything.</li>
-      <li>making connections between ideas & people.</li>
-      <li>simplification — teaching & communicating clearly.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Interests</h2>
-    <div class="two-column">
-      <ul>
-        <li>Aqua-culture</li>
-        <li>cryptography</li>
-        <li>running</li>
-        <li>music</li>
-      </ul>
-      <ul>
-        <li>zero-knowledge proofs</li>
-        <li>distributed systems</li>
-        <li>observability</li>
-        <li>networking</li>
-      </ul>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-email">
-        <a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a>
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route">writings</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route active">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
       </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>about</h1>
+
+        <div class="post-content">
+          <p>I&rsquo;m Stephen Awuah, a software and protocol engineer from Ghana &#127468;&#127469;. I build products end to end
+            &mdash; from the customer problem and product surface to the payment, data, and distributed-system foundations
+            underneath. Right now that means real-estate infrastructure with FlexDown, and the universal payment rail for AI
+            agents with ChainPay, where Solana is the first settlement layer.</p>
+        </div>
+
+        <div class="block">
+          <h2>what i bring</h2>
+          <ul>
+            <li>Product-minded systems engineering: moving from an ambiguous problem to a dependable technical shape.</li>
+            <li>Protocol and payment work: policy boundaries, wallet signing flows, token-program compatibility, receipts, and
+              developer-facing APIs.</li>
+            <li>Community building: practical paths for Ghanaian builders to learn, ship, and contribute through Solana Ghana.</li>
+            <li>Clear technical communication: I write the architecture down, explain trade-offs, and make the next decision
+              easier for a team.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>fun facts</h2>
+          <ul>
+            <li>I co-founded <a href="https://cyzegg.readdy.co/" target="_blank" rel="noreferrer">FlexDown</a>, a real estate
+              platform for Ghana. <span class="status ongoing">[ongoing]</span></li>
+            <li>I&rsquo;m building <a href="https://chainpay-frontend.onrender.com/#support" target="_blank" rel="noreferrer">ChainPay</a>,
+              the universal payment rail for AI agents: one MCP endpoint for policy enforcement, wallet authorization, routing,
+              stablecoin settlement, and receipts. <span class="status ongoing">[Solana first settlement layer]</span></li>
+            <li>I build the <a href="https://solana-ghana-community.onrender.com/" target="_blank" rel="noreferrer">Solana Ghana</a>
+              community on-ramp: learning tracks, builder routes, and events. <span class="status ongoing">[ongoing]</span></li>
+            <li>I run 2km in under 5 minutes.</li>
+            <li>I once built 100+ JavaScript projects in a single year to master the language.
+              <span class="status success">[success]</span></li>
+            <li>I&rsquo;m fascinated by zero-knowledge proofs and the
+              <a href="https://noir-lang.org/" target="_blank" rel="noreferrer">Noir</a> programming language.</li>
+            <li>Failed my third open source contribution on
+              <a href="https://sablier.com/" target="_blank" rel="noreferrer">Sablier Labs</a>.
+              <span class="status failed">[failed]</span> It became the motivation to contribute to Chainlink and Docker Moby
+              &mdash; both of which worked.</li>
+            <li>Contributed to <a href="https://chain.link/" target="_blank" rel="noreferrer">Chainlink</a> open source.
+              <span class="status success">[success]</span></li>
+            <li>About to contribute to the <a href="https://github.com/moby/moby" target="_blank" rel="noreferrer">Docker Moby</a>
+              engine. <span class="status ongoing">[ongoing]</span></li>
+            <li>Ideation on <a href="https://github.com/orgs/noir-lang/discussions/10234" target="_blank" rel="noreferrer">NoirZeppelin</a>
+              &mdash; a ZK version of OpenZeppelin.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>strengths</h2>
+          <ul>
+            <li>software design (go, rust, k8s, cloud)</li>
+            <li>research (spikes, prototypes) &amp; development</li>
+            <li>going from zero-to-one, could be anything</li>
+            <li>making connections between ideas &amp; people</li>
+            <li>simplification &mdash; teaching &amp; communicating clearly</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>interests</h2>
+          <div class="two-column">
+            <ul>
+              <li>aqua-culture</li>
+              <li>cryptography</li>
+              <li>running</li>
+              <li>music</li>
+            </ul>
+            <ul>
+              <li>zero-knowledge proofs</li>
+              <li>distributed systems</li>
+              <li>observability</li>
+              <li>networking</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
       <div class="footer-socials">
-        <a href="https://twitter.com/stawuah" target="_blank">twitter</a>
-        <span>·</span>
-        <a href="https://github.com/stawuah" target="_blank">github</a>
-        <span>·</span>
-        <a href="https://linkedin.com/in/stawuah" target="_blank">linkedin</a>
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
       </div>
-    </div>
-  </footer>
-</div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
+  </div>
 
+  <script src="main.js"></script>
 </body>
+
 </html>

@@ -1,209 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stephen Awuah - Ghanaian software &amp; protocol engineer based in Accra." />
+  <meta name="theme-color" content="#137a5f" />
+
   <title>stawuah.r</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background-color: #fafafa;
-      padding: 0;
-    }
+  <meta property="og:title" content="stawuah.r" />
+  <meta property="og:description" content="Stephen Awuah - Ghanaian software &amp; protocol engineer based in Accra." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="stawuah.r" />
+  <meta name="twitter:description" content="Stephen Awuah - Ghanaian software &amp; protocol engineer based in Accra." />
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-    .header {
-      margin-bottom: 50px;
-    }
-
-    .header h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #000;
-    }
-
-    .header .subtitle {
-      font-size: 0.95rem;
-      color: #404040;
-      margin-bottom: 4px;
-    }
-
-    .header .subtitle strong {
-      color: #000;
-    }
-
-    .header .location {
-      font-size: 0.95rem;
-      color: #404040;
-    }
-
-    nav {
-      position: absolute;
-      top: 60px;
-      right: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    nav a {
-      color: #404040;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #000;
-    }
-
-    .hero-image {
-      width: 100%;
-      margin-bottom: 50px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
-    }
-
-    .content {
-      margin-bottom: 40px;
-    }
-
-    .content p {
-      font-size: 1rem;
-      color: #2a2a2a;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
-    .content p strong {
-      color: #000;
-    }
-
-    .content a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.2s;
-    }
-
-    .content a:hover {
-      border-bottom: 1px solid #0066cc;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .section h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    .section p {
-      font-size: 1rem;
-      color: #2a2a2a;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding-top: 30px;
-      border-top: 1px solid #e0e0e0;
-      text-align: center;
-      color: #737373;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #fafafa;
-        border-bottom: 1px solid #e8e8e8;
-        padding: 15px 20px;
-        z-index: 100;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .container {
-        padding: 80px 20px 40px 20px;
-      }
-
-      .header h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
 
-<nav>
-  <a href="about.html">about</a>
-  <a href="writings.html">writings</a>
-  <a href="projects.html">projects</a> 
-  <!-- <a href="leisure.html">leisure</a>
-  <a href="contact.html">contact</a> -->
-</nav>
+        <div class="routes">
+        <a href="writings.html" class="nav-route">writings</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
 
-<div class="container">
-  <div class="header">
-    <h1>Stephen Awuah </h1>
-    <p class="subtitle">A ghanaian <strong>software engineer</strong></p>
-    <p class="location">based in Accra 🇬🇭</p>
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route">writings</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <div class="home">
+        <div class="bio">
+          <div class="bio__image">
+            <img src="stephen-awuah.jpg" alt="Stephen Awuah" width="140" height="190" />
+          </div>
+
+          <div class="bio__description">
+            <p>Hi&nbsp;I&rsquo;m Stephen Awuah, a &#127468;&#127469;&nbsp;software &amp; protocol engineer based in Accra.</p>
+
+            <p>For the past four years I&rsquo;ve built products across analytics, proptech, enterprise software, and now payment
+              infrastructure. I work where product decisions meet hard systems constraints: money movement, permissions,
+              observability, and distributed services.</p>
+
+            <p>My current chapter is protocol engineering &mdash; payment primitives, trust boundaries, and agent-facing tooling that
+              let software move money safely. Solana is the first settlement layer for
+              <a href="https://chainpay-frontend.onrender.com/#support" target="_blank" rel="noreferrer">ChainPay</a>. I also build
+              in public with <a href="https://solana-ghana-community.onrender.com/" target="_blank" rel="noreferrer">Solana Ghana</a>,
+              a Ghana-first on-ramp for builders.</p>
+
+            <p>Find me here &mdash; <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a> /
+              <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a> /
+              <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a></p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>what i&rsquo;m working on</h2>
+          <p><strong>ChainPay</strong> &mdash; the universal payment rail for AI agents: one MCP endpoint for policy enforcement,
+            wallet authorization, routing, stablecoin settlement, and receipts. Solana is the first settlement layer. Give agents
+            limits, not your keys.</p>
+          <p><strong>HiveLabs</strong> &mdash; building Africa&rsquo;s financial and property infrastructure through savings,
+            flexible home ownership, and seamless payments.</p>
+          <p><strong>FlexDown</strong> &mdash; the operating system for real estate in Ghana: unified property management, verified
+            listings, and transparent transactions.</p>
+          <p><a href="projects.html">See all projects &rarr;</a></p>
+        </div>
+
+        <div class="block">
+          <h2>how i work</h2>
+          <p>I like owning the full path from a sharp product question to the systems that make it real: protocol rules, APIs,
+            developer tooling, deployment, and the feedback loop after release. I optimize for clear boundaries, measurable
+            behaviour, and software that stays understandable as it grows.</p>
+        </div>
+
+        <div class="block recent-posts">
+          <h2>writings</h2>
+          <ul class="post-list">
+      <li class="post-list-item">
+        <a href="article-solana-ghana-community.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">Solana Ghana Community</h4> &middot;
+              <span class="publish-date post-meta">August 31, 2026</span>
+            </div>
+            <p class="post-list-item-meta__summary">building a Ghana-first on-ramp and community resources for Solana builders</p>
+          </div>
+        </a>
+      </li>
+      <li class="post-list-item">
+        <a href="universal-mcp.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">Building a Universal MCP for Agent Payments</h4> &middot;
+              <span class="publish-date post-meta">August 31, 2026</span>
+            </div>
+            <p class="post-list-item-meta__summary">how to give autonomous agents bounded financial authority while keeping control</p>
+          </div>
+        </a>
+      </li>
+      <li class="post-list-item">
+        <a href="article-protocol-engineer-chapter.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">The Protocol Engineer Chapter</h4> &middot;
+              <span class="publish-date post-meta">August 31, 2026</span>
+            </div>
+            <p class="post-list-item-meta__summary">how a backend developer learned to stop trusting systems and start building protocol rules</p>
+          </div>
+        </a>
+      </li>
+      <li class="post-list-item">
+        <a href="article-koyeb-heroku-buildpack.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">When Koyeb Ghosted Me: A TypeScript Compiler Meltdown</h4> &middot;
+              <span class="publish-date post-meta">January 28, 2025</span>
+            </div>
+            <p class="post-list-item-meta__summary">how I learned Koyeb uses Heroku buildpacks and both decided to hate my code simultaneously</p>
+          </div>
+        </a>
+      </li>
+      <li class="post-list-item">
+        <a href="article-geospatial-optimization.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">Optimizing Geospatial Property Search</h4> &middot;
+              <span class="publish-date post-meta">January 22, 2025</span>
+            </div>
+            <p class="post-list-item-meta__summary">from 10,000 queries to sub-second performance with bounding box filtering</p>
+          </div>
+        </a>
+      </li>
+      <li class="post-list-item">
+        <a href="article-split-payments.html">
+          <div class="post-list-item__meta">
+            <div>
+              <h4 class="post-list-item-meta__title">Building Split Payments for FlexDown</h4> &middot;
+              <span class="publish-date post-meta">January 15, 2025</span>
+            </div>
+            <p class="post-list-item-meta__summary">cutting payment processing costs 60% by replacing Paystack splits with our own engine</p>
+          </div>
+        </a>
+      </li>
+          </ul>
+          <p><a href="writings.html">All writings &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
   </div>
 
-  <div class="hero-image">
-    <img src="https://i.ibb.co/bMysxCt8/9d355781-7260-424d-8203-d3f8137b397f-1.jpg" alt="Stephen Awuah">
-  </div>
-
-  <div class="content">
-    <p>For the past 4 years, I've been building products across analytics, proptech, and enterprise software. I recently wrapped up my journey at <a href="https://enyata.com/" target="_blank">Enyata</a> and am excited to tackle my next <strong>BIG PROJECT</strong>.</p>
-    
-    <p>I'm largely interested in open source, diving into LLM memory, GPU Memory + kv cache, football, observability and networked services.</p>
-    
-    <p><a href="about.html">Learn more about me</a>, read my <a href="writings.html">fragments</a>, or <a href="contact.html">contact me</a>. I'm always down to chat.</p>
-  </div>
-
-  <div class="section">
-    <h2>What I'm working on</h2>
-    <p>1. <a href="https://steady-bronze-cohzwizd5h.edgeone.dev/" target="_blank">HiveLabs</a> - Founder of HiveLabs — building Africa’s financial and property infrastructure through savings, flexible home ownership, and seamless payments..</p>
-    <p>1. <a href="https://cyzegg.readdy.co/" target="_blank">FlexDown</a> - The operating system for real estate in Ghana: unified property management, verified listings & transparent transactions.</p>
-    <p>2. <a href="https://urban-lime-qi3ow1njg8.edgeone.dev/" target="_blank">EdgeObserve</a> Logging and metrics for distributed containers. Built specifically for k3s, IoT, and edge infrastructure with a sub-10MB footprint..</p>
-    <p>3. <a href="https://github.com/stawuah/Sink" target="_blank">Sink</a> - observability & logging for edge containers/infra, configurable to development workflow (Golang).</p>
-  </div>
-
-  <footer>
-    <p style="color: #000; font-size: 0.8rem; font-weight: bold;">© 2026 異体同心</p>
-
-  </footer>
-</div>
-
+  <script src="main.js"></script>
 </body>
+
 </html>

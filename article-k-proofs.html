@@ -1,201 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="cryptographic magic explained without the math" />
+  <meta name="theme-color" content="#137a5f" />
+
   <title>Zero-Knowledge Proofs for Beginners - stawuah.r</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background-color: #fff;
-      padding: 0;
-      margin: 0;
-    }
+  <meta property="og:title" content="Zero-Knowledge Proofs for Beginners - stawuah.r" />
+  <meta property="og:description" content="cryptographic magic explained without the math" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Zero-Knowledge Proofs for Beginners - stawuah.r" />
+  <meta name="twitter:description" content="cryptographic magic explained without the math" />
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px 100px 20px;
-    }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-    .header {
-      margin-bottom: 50px;
-    }
-
-    .header h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #000;
-    }
-
-    .header .breadcrumb {
-      font-size: 0.9rem;
-      color: #737373;
-      margin-bottom: 30px;
-    }
-
-    .header .breadcrumb a {
-      color: #737373;
-      text-decoration: none;
-    }
-
-    .header .breadcrumb a:hover {
-      color: #000;
-    }
-
-    nav {
-      position: absolute;
-      top: 60px;
-      right: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    nav a {
-      color: #404040;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #000;
-    }
-
-    .article-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #000;
-      line-height: 1.2;
-    }
-
-    .article-meta {
-      font-size: 0.95rem;
-      color: #737373;
-      margin-bottom: 50px;
-    }
-
-    .article-content {
-      font-size: 1.05rem;
-      color: #2a2a2a;
-      line-height: 1.8;
-    }
-
-    .article-content h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    .article-content p {
-      margin-bottom: 25px;
-    }
-
-    .article-content a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .article-content a:hover {
-      border-bottom: 1px solid #0066cc;
-    }
-
-    .article-content strong {
-      color: #000;
-      font-weight: 600;
-    }
-
-    .article-content code {
-      background-color: #f5f5f5;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #e83e8c;
-    }
-
-    .article-content blockquote {
-      border-left: 3px solid #e0e0e0;
-      padding-left: 20px;
-      margin: 30px 0;
-      color: #404040;
-      font-style: italic;
-    }
-
-    .footnote {
-      font-size: 0.9rem;
-      color: #737373;
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #e8e8e8;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        border-bottom: 1px solid #e8e8e8;
-        padding: 15px 20px;
-        z-index: 100;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 16px;
-      }
-
-      .container {
-        padding: 80px 20px 80px 20px;
-      }
-
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .article-content h2 {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
 
-<nav>
-  <a href="index.html">home</a>
-  <a href="about.html">about</a>
-  <a href="writings.html">writings</a>
-  <a href="projects.html">projects</a>
-  <!-- <a href="leisure.html">leisure</a>
-  <a href="contact.html">contact</a> --> 
-</nav>
+        <div class="routes">
+        <a href="writings.html" class="nav-route active">writings</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
 
-<div class="container">
-  <div class="header">
-    <h1>Stephen Awuah</h1>
-    <p class="breadcrumb"><a href="index.html">home</a> / <a href="writings.html">writings</a> / zero-knowledge proofs for beginners</p>
-  </div>
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
 
-  <h1 class="article-title">zero-knowledge proofs for beginners</h1>
-  
-  <div class="article-meta">January 8, 2025 • Stephen Awuah • 12 min read</div>
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route active">writings</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>Zero-Knowledge Proofs for Beginners</h1>
+        <p class="post-subtitle">Cryptographic magic explained without the math</p>
+        <div class="post-meta"><span>January 8, 2025</span> &bull; <span>12 min read</span></div>
 
-  <div class="article-content">
+        <div class="post-content">
     <h2>Introduction</h2>
     <p>Zero-knowledge proofs (ZKPs) sound like something out of a sci-fi movie, but they're one of the most powerful cryptographic tools we have today. The basic idea? You can prove you know something without revealing what that something is. Mind-bending, right?</p>
 
@@ -276,8 +147,25 @@
     <div class="footnote">
       <p>Thanks for reading. If you found this helpful, feel free to share it with others who might be interested in ZKPs.</p>
     </div>
-  </div>
-</div>
+  
+        </div>
 
+        <p><a href="writings.html">&larr; all writings</a></p>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
