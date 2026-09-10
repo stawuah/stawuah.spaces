@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Why a payments engineer keeps reading about the Infobiotics Workbench, stochastic P systems and model checking." />
+  <meta name="theme-color" content="#0a7c8f" />
+
+  <title>Infobiotics, and the Model I Have Not Written Yet - stawuah.r</title>
+
+  <meta property="og:title" content="Infobiotics, and the Model I Have Not Written Yet - stawuah.r" />
+  <meta property="og:description" content="Why a payments engineer keeps reading about the Infobiotics Workbench, stochastic P systems and model checking." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="stephen-awuah.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Infobiotics, and the Model I Have Not Written Yet - stawuah.r" />
+  <meta name="twitter:description" content="Why a payments engineer keeps reading about the Infobiotics Workbench, stochastic P systems and model checking." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <h1 class="main"><a href="index.html">stawuah.r</a></h1>
+
+        <div class="routes">
+        <a href="writings.html" class="nav-route">writings</a>
+        <div class="divider"></div>
+        <a href="ccl.html" class="nav-route active">ccl</a>
+        <div class="divider"></div>
+        <a href="projects.html" class="nav-route">projects</a>
+        <div class="divider"></div>
+        <a href="about.html" class="nav-route">about</a>
+        <div class="divider"></div>
+        <a href="contact.html" class="nav-route">contact</a>
+        </div>
+
+        <button class="hamburger mobile-only" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-routes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="mobile-routes hidden" id="mobile-routes">
+      <a href="writings.html" class="nav-route">writings</a>
+      <a href="ccl.html" class="nav-route active">ccl</a>
+      <a href="projects.html" class="nav-route">projects</a>
+      <a href="about.html" class="nav-route">about</a>
+      <a href="contact.html" class="nav-route">contact</a>
+      <a href="https://twitter.com/stawuah__" class="nav-route" target="_blank" rel="noreferrer">twitter</a>
+      <a href="https://github.com/stawuah" class="nav-route" target="_blank" rel="noreferrer">github</a>
+      <a href="https://linkedin.com/in/stawuah" class="nav-route" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+    </header>
+    <div class="main">
+      <article class="post">
+        <h1>Infobiotics, and the Model I Have Not Written Yet</h1>
+        <p class="post-subtitle">A systems biology toolchain built on membranes and model checkers, and why someone who
+          works on payment boundaries keeps reading its papers.</p>
+        <div class="post-meta"><span>10 September 2026</span> &bull; <span>3 min read</span> &bull;
+          <span class="status research">[research interest]</span></div>
+
+        <div class="post-content">
+          <p>I want to write about something I have never used. That feels worth stating up front, because most of what I
+            publish is work I have done, and this is not that. It is a thing I love from a distance and would like to try
+            properly one day.</p>
+
+          <p>The <a href="https://ico2s.org/software/infobiotics.html" target="_blank" rel="noreferrer">Infobiotics
+            Workbench</a> is an in-silico software suite for computational systems and synthetic biology. Its modelling
+            framework is <a href="https://link.springer.com/chapter/10.1007/978-3-319-03191-0_1" target="_blank" rel="noreferrer">stochastic
+            P systems</a>, a probabilistic extension of P systems, and it puts modelling, simulation, verification and
+            biocompilation behind a single domain-specific language, the Infobiotics Language. Models are written,
+            simulated deterministically or stochastically, checked formally, and eventually compiled towards genetic
+            constructs.</p>
+
+          <p>I am not a biologist. What pulled me in was the shape of the abstraction.</p>
+
+          <h2>Computation defined by boundaries</h2>
+
+          <p>A P system computes with membranes. You have nested compartments, rules that fire inside them, and controlled
+            transport of objects across their walls. The interesting question is never only what a rule does &mdash; it is
+            what is permitted to cross which boundary, under what conditions, and what the system as a whole is therefore
+            guaranteed to do.</p>
+
+          <p>That is almost exactly the question I spend my working days on. ChainPay is a set of compartments too: a
+            mandate is a boundary, a spending limit is a rule on transport, an approved recipient is an eligibility check
+            at the wall. Token-2022 transfer hooks are the same idea in a different vocabulary. I did not expect membrane
+            computing to describe my own problem back to me in cleaner language, but it does.</p>
+
+          <h2>The part I actually envy</h2>
+
+          <p>Infobiotics analyses its models with the PRISM and MC2 model checkers, so you can state a temporal or spatial
+            property of a stochastic, multi-compartment system and have it checked rather than argued about.</p>
+
+          <p>In payments I reason about that class of property constantly. No agent widens its own authority. No mandate
+            settles twice. Every settlement produces a receipt. I currently defend those with tests, code review and
+            careful reading. Biologists modelling a genetic circuit reach for a model checker. The gap between those two
+            habits is not a gap in the tooling &mdash; PRISM exists, and people do apply it to protocols &mdash; it is a
+            gap in my own training, and I would like to close it.</p>
+
+          <h2>What I would try first</h2>
+
+          <p>Something deliberately small. Two compartments, a population of objects in one, a rule that moves them across
+            the membrane only under a stated condition, and then a property to check: that the second compartment never
+            exceeds some bound, however the stochastic schedule falls out. That is a toy. It is also the exact shape of a
+            spending limit, and I would learn more from getting one such model to pass than from reading another paper
+            about it.</p>
+
+          <p>I have not done this. I have read about it, and I keep the tab open. It sits in the same part of my head as
+            zero-knowledge proofs did two years ago, before I wrote any Noir &mdash; an interest I have not yet earned the
+            right to call experience.</p>
+
+          <p>Someday. Probably starting with a model that fails, several times, before it says anything true.</p>
+        </div>
+
+        <div class="footnote">
+          <p>This is an interest, not a credential. I have not built with the Infobiotics Workbench and make no claim to
+            expertise in systems biology or membrane computing.</p>
+          <p><a href="ccl.html">&larr; current career life</a></p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-email"><a href="mailto:stawuah18@gmail.com">stawuah18@gmail.com</a></div>
+      <div class="footer-socials">
+        <a href="https://twitter.com/stawuah__" target="_blank" rel="noreferrer">twitter</a>
+        <a href="https://github.com/stawuah" target="_blank" rel="noreferrer">github</a>
+        <a href="https://linkedin.com/in/stawuah" target="_blank" rel="noreferrer">linkedin</a>
+      </div>
+      <div class="footer-mark">&copy; 2026 &#30064;&#20307;&#21516;&#24515;</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
