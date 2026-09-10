@@ -427,9 +427,11 @@ article.post figure figcaption {
   white-space: nowrap;
 }
 
-.status.ongoing { color: var(--accent); }
-.status.success { color: #2b7a2b; }
-.status.failed  { color: #b03030; }
+.status.ongoing  { color: var(--accent); }
+.status.success  { color: #2b7a2b; }
+.status.failed   { color: #b03030; }
+.status.research { color: #6a5acd; }
+.status.future   { color: var(--muted); }
 
 /* ---------- contact ---------- */
 
